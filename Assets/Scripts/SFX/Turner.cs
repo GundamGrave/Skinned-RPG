@@ -13,6 +13,6 @@ public class Turner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.eulerAngles = new Vector3(0, Time.time * speed, 0);
+        transform.eulerAngles = new Vector3(-90, Time.time * speed, 90);
 	}
 }
