@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Beserk
   m_EditorClassIdentifier: 
   Duration: 2
-  BaseDamage: 10
+  BaseDamage: 0
   modifiers:
   - stat: 2
     delta: 3

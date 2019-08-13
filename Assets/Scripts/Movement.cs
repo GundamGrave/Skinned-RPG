@@ -37,7 +37,6 @@ public class Movement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
         {
-            Debug.Log(location);
             if (Vector3.Distance(transform.position, hit.point) <= MoveDistance)
             {
                 location = hit.point;
