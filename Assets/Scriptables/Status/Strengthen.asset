@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Duration: 2
   BaseDamage: 0
-  modifiers: []
+  modifiers:
+  - stat: 2
+    delta: 10

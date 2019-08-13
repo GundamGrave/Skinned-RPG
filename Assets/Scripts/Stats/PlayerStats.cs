@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerStats : UnitInformation
 {
-
+    public int str, dex, intel, spd;
 
     public override void InitializeStats()
     {
         base.InitializeStats();
 
-        SetStat(Stats.Strength, 10);
-        SetStat(Stats.Dexterity, 20);
-        SetStat(Stats.Intelligence, 30);
-        SetStat(Stats.Speed, 40);
+        SetStat(Stats.Strength, str);
+        SetStat(Stats.Dexterity, dex);
+        SetStat(Stats.Intelligence, intel);
+        SetStat(Stats.Speed, spd);
     }
 
     public override void Start()

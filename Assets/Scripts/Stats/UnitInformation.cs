@@ -53,6 +53,11 @@ public class UnitInformation : MonoBehaviour
         StatsDict[stat.ToString()] = value;
     }
 
+    public void ModifyStat(Stats stat, float value)
+    {
+        StatsDict[stat.ToString()] += value;
+    }
+
     public float maxHealth
     {
         get
@@ -99,11 +104,14 @@ public class UnitInformation : MonoBehaviour
         CurrentStatuses.Add(status);
     }
 
-    void ApplyStatuses()
+    public void ApplyStatuses()
     {
         foreach(Status s in CurrentStatuses)
         {
-            //find original stat?
+            foreach(Status.Modifier m in s.modifiers)
+            {
+                ModifyStat(m.stat, m.delta);
+            }
         }
     }
 }

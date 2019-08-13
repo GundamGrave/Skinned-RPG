@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StrengthUp
   m_EditorClassIdentifier: 
   Cost: 2
-  SkillCooldown: 3
+  SkillCooldown: 0
   CooldownTimer: 0
   isAvailable: 1
   Radius: 0
