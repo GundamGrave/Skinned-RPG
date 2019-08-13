@@ -25,9 +25,19 @@ public class Skill : ScriptableObject
     public Status[] PlayerStatuses;
     public int PlayerStatusDuration;
 
+    [Header("Visual FX")]
+    public VisualFX CasterEffects;
+    public VisualFX TargetEffects;
+
+
     public virtual void UseSkill()
     {
         isAvailable = false;
+        if (CasterEffects != null)
+        {
+            // todo need a caster and target
+            //CasterEffects.StartFX(transform);
+        }
     }
 
     public void SkillTimer()
