@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "ArmourCards", menuName = "RPG/WeaponCards")]
-public class ArmourCards : MonoBehaviour
+
+[CreateAssetMenu(fileName = "ArmourCards", menuName = "RPG/ArmourCards")]
+public class ArmourCards : ScriptableObject
 {
     public GameObject gameObject;
 
