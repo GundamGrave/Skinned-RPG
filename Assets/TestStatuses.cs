@@ -9,6 +9,8 @@ public class TestStatuses : MonoBehaviour
 
     public List<TEST> t = new List<TEST>();
 
+
+    [System.Serializable]
     public struct TEST
     {
         public Status status;

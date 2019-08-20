@@ -18,6 +18,8 @@ public class Status : ScriptableObject
 
     [Header("Effects"), Space(10)]
     public Modifier[] modifiers; // Happens only once
+    public bool isApplied;
 
     public Modifier[] everyTurnModifier; // Happens every turn
+    public int Timer;
 }

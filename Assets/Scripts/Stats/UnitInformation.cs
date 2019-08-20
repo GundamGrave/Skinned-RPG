@@ -8,9 +8,6 @@ public class UnitInformation : MonoBehaviour
     public List<Skill> CurrentSkills;
     public List<Status> CurrentStatuses = new List<Status>();
 
-    public List<int> StatusesTimer = new List<int>();
-    public List<bool> StatusesApplied = new List<bool>();
-
     public Dictionary<string, float> StatsDict = new Dictionary<string, float>();
 
     public static UnityEvent StatsChanged = new UnityEvent();
@@ -29,6 +26,7 @@ public class UnitInformation : MonoBehaviour
     {
         InitializeStats();
         LoadSkills();
+
         TurnManager.TurnEnded.AddListener(ManageStatuses);
     }
 
@@ -104,39 +102,51 @@ public class UnitInformation : MonoBehaviour
 
     public void NewStatus(Status status)
     {
-        Instantiate(status);
-        CurrentStatuses.Add(status);
-        StatusesTimer.Add(status.Duration);
-        StatusesApplied.Add(false);
+        Status inst = Instantiate(status);
+        CurrentStatuses.Add(inst);
+        foreach(Status.Modifier m in inst.modifiers)
+        {
+            ModifyStat(m.stat, m.delta);
+        }
+        foreach (Status.Modifier m in inst.everyTurnModifier)
+        {
+            ModifyStat(m.stat, m.delta);
+        }
     }
 
     public void ApplyStatuses()
     {
         foreach(Status s in CurrentStatuses)
         {
-            if(!StatusesApplied[CurrentStatuses.IndexOf(s)])
+            foreach(Status.Modifier m in s.everyTurnModifier)
             {
-                StatusesApplied[CurrentStatuses.IndexOf(s)] = true;
-                foreach (Status.Modifier m in s.modifiers)
-                {
-                        ModifyStat(m.stat, m.delta);
-                }
+                ModifyStat(m.stat, m.delta);
             }
         }
     }
 
     public void ManageStatuses()
     {
-        foreach(Status s in CurrentStatuses)
+        ApplyStatuses();
+        List<Status> deathRow = new List<Status>();
+
+        foreach (Status s in CurrentStatuses)
         {
             int index = CurrentStatuses.IndexOf(s);
-            StatusesTimer[index]--;
-            if(StatusesTimer[index] == 0)
+            s.Timer++;
+            if (s.Timer == s.Duration)
             {
-                CurrentStatuses.RemoveAt(index);
-                StatusesTimer.RemoveAt(index);
-                StatusesApplied.RemoveAt(index);
+                deathRow.Add(s);
             }
+        }
+
+        foreach(Status s in deathRow)
+        {
+            foreach (Status.Modifier m in s.modifiers)
+            {
+                ModifyStat(m.stat, -m.delta);
+            }
+            CurrentStatuses.Remove(s);
         }
     }
 }
