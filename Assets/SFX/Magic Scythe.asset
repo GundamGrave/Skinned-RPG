@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7db1f1cafdf136344b37bf0b011251e6, type: 3}
-  m_Name: ItemCards
+  m_Script: {fileID: 11500000, guid: 0526f274d6c235d49b779fced2229d00, type: 3}
+  m_Name: Magic Scythe
   m_EditorClassIdentifier: 
-  gameObject: {fileID: 0}
-  ItemName: 
-  DamageMod: 0
-  HPMod: 0
-  MPMod: 0
-  FlavText: 
+  prefab: {fileID: 356967931579769308, guid: 759f81b545dcee143966db3e71d61fc3, type: 3}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  duration: 0
