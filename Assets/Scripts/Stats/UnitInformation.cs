@@ -8,6 +8,9 @@ public class UnitInformation : MonoBehaviour
     public List<Skill> CurrentSkills;
     public List<Status> CurrentStatuses = new List<Status>();
 
+    public List<int> StatusesTimer = new List<int>();
+    public List<bool> StatusesApplied = new List<bool>();
+
     public Dictionary<string, float> StatsDict = new Dictionary<string, float>();
 
     public static UnityEvent StatsChanged = new UnityEvent();
@@ -26,6 +29,7 @@ public class UnitInformation : MonoBehaviour
     {
         InitializeStats();
         LoadSkills();
+        TurnManager.TurnEnded.AddListener(ManageStatuses);
     }
 
     public virtual void InitializeStats()
@@ -102,15 +106,36 @@ public class UnitInformation : MonoBehaviour
     {
         Instantiate(status);
         CurrentStatuses.Add(status);
+        StatusesTimer.Add(status.Duration);
+        StatusesApplied.Add(false);
     }
 
     public void ApplyStatuses()
     {
         foreach(Status s in CurrentStatuses)
         {
-            foreach(Status.Modifier m in s.modifiers)
+            if(!StatusesApplied[CurrentStatuses.IndexOf(s)])
             {
-                ModifyStat(m.stat, m.delta);
+                StatusesApplied[CurrentStatuses.IndexOf(s)] = true;
+                foreach (Status.Modifier m in s.modifiers)
+                {
+                        ModifyStat(m.stat, m.delta);
+                }
+            }
+        }
+    }
+
+    public void ManageStatuses()
+    {
+        foreach(Status s in CurrentStatuses)
+        {
+            int index = CurrentStatuses.IndexOf(s);
+            StatusesTimer[index]--;
+            if(StatusesTimer[index] == 0)
+            {
+                CurrentStatuses.RemoveAt(index);
+                StatusesTimer.RemoveAt(index);
+                StatusesApplied.RemoveAt(index);
             }
         }
     }

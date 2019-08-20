@@ -10,6 +10,9 @@ public class CombatManager : MonoBehaviour
 
     public bool InCombat;
 
+    public int outsideCombatTimer = 5;
+    bool timerRunning = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +29,20 @@ public class CombatManager : MonoBehaviour
         if (InCombat)
         {
             UpdateSpeedList();
+            if (timerRunning)
+            {
+                timerRunning = false;
+                StopCoroutine("OutsideCombat");
+            }
         }
         else
         {
             battleOrder = null;
+            if (!timerRunning)
+            {
+                timerRunning = true;
+                StartCoroutine("OutsideCombat");
+            }
             return;
         }
     }
@@ -75,5 +88,19 @@ public class CombatManager : MonoBehaviour
         //}
 
         battleOrder = fastList.ToArray();
+    }
+
+    IEnumerator OutsideCombat()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1);
+            outsideCombatTimer--;
+            if(outsideCombatTimer == 0)
+            {
+                TurnManager.TurnEnded.Invoke();
+                outsideCombatTimer = 5;
+            }
+        }
     }
 }

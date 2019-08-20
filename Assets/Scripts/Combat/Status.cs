@@ -18,5 +18,4 @@ public class Status : ScriptableObject
 
     [Header("Effects"), Space(10)]
     public Modifier[] modifiers;
-    
 }
