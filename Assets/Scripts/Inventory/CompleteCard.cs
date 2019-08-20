@@ -11,17 +11,22 @@ public class CompleteCard : ScriptableObject
     public GameObject cardborder;
 
     public Image cardArt;
-    
+
     public string CardName = "";
     public string FlavText = "";
 
     // Card Classes
 
-    public bool BasicAttackCard;
-    public bool WeaponCard;
-    public bool ArmourCard;
-    public bool ItemCard;
-    public bool SpellCard;
+    public enum CardType
+    {
+        BasicAttackCard,
+        WeaponCard,
+        ArmourCard,
+        ItemCard,
+        SpellCard,
+    }
+
+    public CardType cardType;
 
     //Stat Modifiers
 

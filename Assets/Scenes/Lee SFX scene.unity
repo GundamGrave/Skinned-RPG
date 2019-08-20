@@ -1215,6 +1215,6 @@ MonoBehaviour:
   StatusesTimer: 
   StatusesApplied: 
   str: 0
-  dex: 0
+  dex: 100
   intel: 0
   spd: 0

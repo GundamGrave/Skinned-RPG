@@ -13,10 +13,11 @@ public class PlayerHand : MonoBehaviour
     }
 
     public PlayHand[] usableCard;
+    PlayerStats ps;
 
     private void Start()
     {
-        PlayerStats ps = GetComponent<PlayerStats>();
+        ps = GetComponent<PlayerStats>();
     }
 
     void Update()
@@ -28,6 +29,9 @@ public class PlayerHand : MonoBehaviour
                 // Check if player has enough mana
                 // If so go into "target" mode
                 Debug.Log(usableCard[i].card.CardName);
+
+                // fudge to simulate mana
+                ps.dex -= usableCard[i].card.MPCost; 
             }
                 
         }

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerManaPoints : MonoBehaviour
 {
+    public int ManaPoints;
+
     // Start is called before the first frame update
     void Start()
     {
