@@ -1190,11 +1190,31 @@ MonoBehaviour:
   usableCard:
   - card: {fileID: 11400000, guid: 5705cf93f0e31f743a8c657e524c9b8f, type: 2}
     key: 49
-  - card: {fileID: 0}
+  - card: {fileID: 11400000, guid: fb6dadadb2e5877428aad96659dd8f46, type: 2}
     key: 50
-  - card: {fileID: 0}
+  - card: {fileID: 11400000, guid: 80d951b1c3fd0a74f9de1be19c4e83b6, type: 2}
     key: 51
-  - card: {fileID: 0}
+  - card: {fileID: 11400000, guid: efbc5ed8c33576140a4a579ed0ec1511, type: 2}
     key: 52
-  - card: {fileID: 0}
+  - card: {fileID: 11400000, guid: c3c8c177a9fab8645b777ba58c003a70, type: 2}
     key: 53
+--- !u!114 &4670277681603926413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670277681603926411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93295deae1e11e54582bb3d6c0af765f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentSkills: []
+  CurrentStatuses: []
+  StatusesTimer: 
+  StatusesApplied: 
+  str: 0
+  dex: 0
+  intel: 0
+  spd: 0
