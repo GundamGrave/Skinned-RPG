@@ -8,12 +8,10 @@ public class CompleteCard : ScriptableObject
 {
     // Card basics
 
-    public GameObject cardborder;
+   public Sprite cardArt;
 
-    public Image cardArt;
-
-    public string CardName = "";
-    public string FlavText = "";
+    public string cardName = "";
+    public string flavText = "";
 
     // Card Classes
 
@@ -26,16 +24,32 @@ public class CompleteCard : ScriptableObject
         SpellCard,
     }
 
+    public enum SetType
+    {
+        None,
+        Type1,
+        Type2,
+        Type3,
+    }
+
     public CardType cardType;
+
+    public SetType setType;
 
     //Stat Modifiers
 
-    public int HPMod;
-    public int MPMod;
+    public int strMod;
+    public int intMod;
+    public int spdMod;
 
     //Spell Cards Only
 
     public Skill Spell;
-    public int MPCost;
+    public string GetDescription()
+    {
+        string desc = "";
+        desc += Spell.GetDescription();
+        return desc;
+    }
        
 }

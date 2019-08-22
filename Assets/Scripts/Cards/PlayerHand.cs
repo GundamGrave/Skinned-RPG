@@ -28,10 +28,8 @@ public class PlayerHand : MonoBehaviour
             {
                 // Check if player has enough mana
                 // If so go into "target" mode
-                Debug.Log(usableCard[i].card.CardName);
-
-                // fudge to simulate mana
-                ps.dex -= usableCard[i].card.MPCost; 
+                Debug.Log(usableCard[i].card.name);
+                                             
             }
                 
         }
