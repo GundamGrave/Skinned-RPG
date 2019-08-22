@@ -8,6 +8,12 @@ public class PlayerStats : UnitInformation
 
     public bool inCombat;
 
+    public bool targetMode;
+    public GameObject targetLoc;
+    [SerializeField] LayerMask mask;
+
+    public Skill SelectedSkill;
+
     public override void InitializeStats()
     {
         base.InitializeStats();
@@ -21,12 +27,33 @@ public class PlayerStats : UnitInformation
     public override void Start()
     {
         base.Start();
+        targetLoc = new GameObject();
+        targetLoc.transform.parent = transform;
+        targetLoc.name = "Target Location";
     }
 
     public override void Update()
     {
         base.Update();
         LevelUp();
+        if (targetMode)
+        {
+            targetLoc.transform.position = something() + new Vector3 (0,0.15f,0);
+            targetLoc.DrawCircle(SelectedSkill.Radius, 0.1f);
+        }
+    }
+
+    private Vector3 something() // hahhah need to name this properly (gets location of where the mouse is hovering)
+    {
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
+        {
+            Vector3 location = hit.point;
+            return location;
+        }
+
+        return transform.position;
     }
 
     private void LevelUp()

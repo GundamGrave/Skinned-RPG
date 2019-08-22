@@ -47,7 +47,7 @@ public class UnitInformation : MonoBehaviour
             EndTurn();
     }
 
-    public void EndTurn()
+    public virtual void EndTurn()
     {
         CM.CurrentTurn++;
         myTurn = false;

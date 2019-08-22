@@ -26,12 +26,17 @@ public class CombatManager : MonoBehaviour
     {
         if (InCombat)
         {
+            if (battleOrder == null)
+            {
+                FindCombatants();
+                UpdateSpeedList();
+            }
+
             if (timerRunning)
             {
                 timerRunning = false;
-                StopCoroutine("OutsideCombat");
-                FindCombatants();
-            }
+                StopCoroutine("OutsideCombat");             
+            }           
 
             if (CurrentTurn == battleOrder.Length)
                 CurrentTurn = 0;

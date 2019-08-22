@@ -10,16 +10,21 @@ public class AIStats : UnitInformation
     public NavMeshAgent navMesh;
     public PlayerStats player;
 
+    public float MoveDistance;
+    private Vector3 lastPos;
+    private float distanceTravelled;
+
+    public float AP;
 
     // Start is called before the first frame update
 
     public override void Start()
     {
         base.Start();
-
+        lastPos = transform.position;
         sc = GetComponent<SphereCollider>();
         sc.isTrigger = true;
-        sc.radius = 10;
+        sc.radius = 15;
 
         player = FindObjectOfType<PlayerStats>();
         navMesh = GetComponent<NavMeshAgent>();
@@ -27,16 +32,46 @@ public class AIStats : UnitInformation
 
     public override void Update()
     {
+        AP = GetStat(Stats.ActionPoints);
         base.Update();
         if (myTurn)
         {
             navMesh.destination = player.transform.position;
             float distance = Vector3.Distance(transform.position, player.transform.position);
+            DistanceTravel();
             if(distance <= 5)
             {
                 navMesh.destination = transform.position;
                 EndTurn();
             }
+        }
+    }
+
+    public override void EndTurn()
+    {
+        base.EndTurn();
+        navMesh.destination = transform.position;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            CM.InCombat = true;
+            print("succeed");
+            return;
+        }
+        print("fail");
+    }
+
+    public void DistanceTravel()
+    {
+        distanceTravelled += Vector3.Distance(lastPos, transform.position);
+        lastPos = transform.position;
+        if (distanceTravelled >= MoveDistance)
+        {
+            distanceTravelled -= MoveDistance;
+            ModifyStat(Stats.ActionPoints, -1);
         }
     }
 }
