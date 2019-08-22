@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(SphereCollider))]
 public class AIStats : UnitInformation
 {
     public SphereCollider sc;
@@ -22,9 +21,9 @@ public class AIStats : UnitInformation
     {
         base.Start();
         lastPos = transform.position;
-        sc = GetComponent<SphereCollider>();
+        sc = GetComponentInChildren<SphereCollider>();
         sc.isTrigger = true;
-        sc.radius = 15;
+        sc.radius = 5;
 
         player = FindObjectOfType<PlayerStats>();
         navMesh = GetComponent<NavMeshAgent>();

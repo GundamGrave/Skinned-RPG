@@ -7,6 +7,7 @@ public class PlayerStats : UnitInformation
     public int str, intel, init;
 
     public bool inCombat;
+    private Movement movement;
 
     public bool targetMode;
     public GameObject targetLoc;
@@ -27,9 +28,18 @@ public class PlayerStats : UnitInformation
     public override void Start()
     {
         base.Start();
+
+        movement = GetComponent<Movement>();
+
         targetLoc = new GameObject();
+        targetLoc.AddComponent<SphereCollider>();
+        targetLoc.GetComponent<SphereCollider>().isTrigger = true;
+        targetLoc.AddComponent<TargetChecker>();
         targetLoc.transform.parent = transform;
         targetLoc.name = "Target Location";
+        targetLoc.AddComponent<Rigidbody>();
+        targetLoc.GetComponent<Rigidbody>().isKinematic = true;
+        targetLoc.GetComponent<Rigidbody>().useGravity = false;
     }
 
     public override void Update()
@@ -38,8 +48,22 @@ public class PlayerStats : UnitInformation
         LevelUp();
         if (targetMode)
         {
-            targetLoc.transform.position = something() + new Vector3 (0,0.15f,0);
+            movement.canMove = false;
+            targetLoc.transform.position = something() + new Vector3(0, 0.15f, 0);
             targetLoc.DrawCircle(SelectedSkill.Radius, 0.1f);
+            if (Input.GetButtonDown("Fire1"))
+            {
+                targetLoc.GetComponent<SphereCollider>().radius = SelectedSkill.Radius;
+                UnitInformation[] GOs = targetLoc.GetComponent<TargetChecker>().UIs.ToArray();
+                foreach(UnitInformation ui in GOs)
+                {
+                    print(ui);
+                }
+            }
+        }
+        else if (!targetMode && inCombat && myTurn)
+        {
+            movement.canMove = true;
         }
     }
 
@@ -58,7 +82,7 @@ public class PlayerStats : UnitInformation
 
     private void LevelUp()
     {
-        if(GetStat(Stats.Experience) >= xpNeeded())
+        if (GetStat(Stats.Experience) >= xpNeeded())
         {
             ModifyStat(Stats.Experience, -xpNeeded()); //Remove the amount of XP needed to level up
 
@@ -75,7 +99,7 @@ public class PlayerStats : UnitInformation
 
     private float xpNeeded()
     {
-        if(GetStat(Stats.Level) == 25)
+        if (GetStat(Stats.Level) == 25)
         {
             return ParagonXP();
         }
