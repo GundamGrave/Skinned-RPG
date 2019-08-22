@@ -52,4 +52,13 @@ public class Skill : ScriptableObject
             }
         }
     }
+
+    public string GetDescription()
+    {
+        string desc = "";
+        desc += "<b>" + name + "</b>";
+        desc += "\n" + Cost.ToString() + " Energy";
+        desc += "\n" + TargetDamage.ToString() + " Damage";
+        return desc;
+    }
 }
