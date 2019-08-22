@@ -8,6 +8,8 @@ public class CombatManager : MonoBehaviour
 
     public UnitInformation[] battleOrder;
 
+    public int CurrentTurn;
+
     public bool InCombat;
 
     public int outsideCombatTimer = 5;
@@ -16,11 +18,7 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      go = FindObjectsOfType<UnitInformation>();
-        foreach (UnitInformation u in go)
-        {
-            u.ApplyStatuses();
-        }
+
     }
 
     // Update is called once per frame
@@ -28,12 +26,20 @@ public class CombatManager : MonoBehaviour
     {
         if (InCombat)
         {
-            UpdateSpeedList();
             if (timerRunning)
             {
                 timerRunning = false;
                 StopCoroutine("OutsideCombat");
+                FindCombatants();
             }
+
+            if (CurrentTurn == battleOrder.Length)
+                CurrentTurn = 0;
+
+            if (CurrentTurn == 0)
+                UpdateSpeedList();
+
+            battleOrder[CurrentTurn].myTurn = true;  
         }
         else
         {
@@ -47,15 +53,29 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    private void FindCombatants()
+    {
+        go = FindObjectsOfType<UnitInformation>();
+        foreach (UnitInformation u in go)
+        {
+            u.ApplyStatuses();
+        }
+    }
+
     private void UpdateSpeedList()
     {
-        List<UnitInformation> fastList = new List<UnitInformation>();
-        fastList.AddRange(go);
-
-        fastList.Sort(delegate (UnitInformation a, UnitInformation b)
+        if (InCombat)
         {
-            return a.GetStat(UnitInformation.Stats.Speed).CompareTo(b.GetStat(UnitInformation.Stats.Speed));
-        });
+            List<UnitInformation> fastList = new List<UnitInformation>();
+            fastList.AddRange(go);
+
+            fastList.Sort(delegate (UnitInformation a, UnitInformation b)
+            {
+                return -a.GetStat(UnitInformation.Stats.Initiative).CompareTo(b.GetStat(UnitInformation.Stats.Initiative));
+            });
+
+            battleOrder = fastList.ToArray();
+        }
 
         //UnitInformation nextFastest = null;
         //List<UnitInformation> fastList = new List<UnitInformation>();
@@ -86,8 +106,6 @@ public class CombatManager : MonoBehaviour
         //    speedList.Add(nextFastest);
         //    nextFastest = null;
         //}
-
-        battleOrder = fastList.ToArray();
     }
 
     IEnumerator OutsideCombat()
@@ -96,7 +114,7 @@ public class CombatManager : MonoBehaviour
         {
             yield return new WaitForSeconds(1);
             outsideCombatTimer--;
-            if(outsideCombatTimer == 0)
+            if (outsideCombatTimer == 0)
             {
                 TurnManager.TurnEnded.Invoke();
                 outsideCombatTimer = 5;

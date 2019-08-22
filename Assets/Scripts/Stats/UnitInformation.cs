@@ -10,32 +10,61 @@ public class UnitInformation : MonoBehaviour
 
     public Dictionary<string, float> StatsDict = new Dictionary<string, float>();
 
+    public CombatManager CM;
+    public bool myTurn;
+
     public static UnityEvent StatsChanged = new UnityEvent();
 
     public enum Stats
     {
         MaxHealth,
         CurrentHealth,
-        Strength,
-        Dexterity,
+        Level,
+        Paragon,
+        Experience,
+        ActionPoints,
+
+        Strength = 16,
         Intelligence,
-        Speed,
+        Initiative,
+
+        AbilityPower = 32,
+        AttackDamage,
     };
 
     public virtual void Start()
     {
+        CM = GameObject.Find("_gameManager").GetComponent<CombatManager>();
         InitializeStats();
         LoadSkills();
 
         TurnManager.TurnEnded.AddListener(ManageStatuses);
     }
 
+    public virtual void Update()
+    {
+        if (GetStat(Stats.ActionPoints) == 0)
+            EndTurn();
+    }
+
+    public void EndTurn()
+    {
+        CM.CurrentTurn++;
+        myTurn = false;
+
+        ModifyStat(Stats.ActionPoints, 4);
+        if (GetStat(Stats.ActionPoints) > 8)
+            SetStat(Stats.ActionPoints, 8);
+    }
+
     public virtual void InitializeStats()
     {
+        SetStat(Stats.ActionPoints, 4);
         SetStat(Stats.MaxHealth, 100);
         SetStat(Stats.CurrentHealth, 100);
     }
 
+    #region Stat Stuff
     // safely query the dictionary for a stat that may or may not exist
     float GetStat(string statName)
     {
@@ -71,6 +100,7 @@ public class UnitInformation : MonoBehaviour
             StatsDict[Stats.MaxHealth.ToString()] = value;
         }
     }
+    #endregion
 
     private void LoadSkills()
     {

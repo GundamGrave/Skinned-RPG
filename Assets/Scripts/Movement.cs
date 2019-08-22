@@ -11,23 +11,31 @@ public class Movement : MonoBehaviour
     private Vector3 location;
 
     private NavMeshAgent navMesh;
+    private PlayerStats ps;
+    private CombatManager cm;
 
     [SerializeField] LayerMask mask;
 
     // Start is called before the first frame update
     void Start()
     {
+        cm = GameObject.Find("_gameManager").GetComponent<CombatManager>();
         //mask = LayerMask.GetMask("Tiles");
         navMesh = GetComponent<NavMeshAgent>();
+        ps = GetComponent<PlayerStats>();
         inCombat = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && !inCombat)
+        inCombat = cm.InCombat;
+        if (Input.GetButtonDown("Fire1"))
         {
-            ClickToMove();
+            if (inCombat && ps.myTurn)
+                ClickToMove();
+            else if (!inCombat)
+                ClickToMove();
         }
     }
 

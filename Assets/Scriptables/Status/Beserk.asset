@@ -19,3 +19,10 @@ MonoBehaviour:
     delta: 3
   - stat: 3
     delta: -1
+  isApplied: 0
+  everyTurnModifier:
+  - stat: 0
+    delta: 0
+  - stat: 0
+    delta: 0
+  Timer: 0

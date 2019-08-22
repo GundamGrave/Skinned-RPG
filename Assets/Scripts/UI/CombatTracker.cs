@@ -42,6 +42,6 @@ public class CombatTracker : MonoBehaviour
 
     public void EndTurn()
     {
-        TurnManager.TurnEnded.Invoke();
+        player.EndTurn();
     }
 }

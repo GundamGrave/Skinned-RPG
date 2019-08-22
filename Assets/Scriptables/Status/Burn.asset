@@ -12,7 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6782a3d5a19aa53489599e8ac28de21d, type: 3}
   m_Name: Burn
   m_EditorClassIdentifier: 
-  Duration: 0
-  BaseDamage: 0
+  Duration: 3
+  BaseDamage: 5
   modifiers: []
-  everyTurnModifier: []
+  isApplied: 0
+  everyTurnModifier:
+  - stat: 1
+    delta: -10
+  - stat: 0
+    delta: -10
+  Timer: 0
