@@ -31,6 +31,12 @@ public class AIStats : UnitInformation
 
     public override void Update()
     {
+        if(GetStat(Stats.CurrentHealth) <= 0)
+        {
+            player.ModifyStat(Stats.Experience, 100);
+            Destroy(gameObject);
+        }
+
         AP = GetStat(Stats.ActionPoints);
         base.Update();
         if (myTurn)
@@ -57,10 +63,7 @@ public class AIStats : UnitInformation
         if (other.gameObject.tag == "Player")
         {
             CM.InCombat = true;
-            print("succeed");
-            return;
         }
-        print("fail");
     }
 
     public void DistanceTravel()

@@ -19,10 +19,8 @@ public class PlayerStats : UnitInformation
     {
         base.InitializeStats();
 
-        SetStat(Stats.Strength, str);
-        SetStat(Stats.Intelligence, intel);
-        SetStat(Stats.Initiative, init);
-        SetStat(Stats.Level, 1);
+       SetStat(Stats.Experience, 0);
+       
     }
 
     public override void Start()
@@ -46,18 +44,29 @@ public class PlayerStats : UnitInformation
     {
         base.Update();
         LevelUp();
+
         if (targetMode)
         {
             movement.canMove = false;
             targetLoc.transform.position = something() + new Vector3(0, 0.15f, 0);
             targetLoc.DrawCircle(SelectedSkill.Radius, 0.1f);
+            targetLoc.GetComponent<SphereCollider>().radius = SelectedSkill.Radius;
             if (Input.GetButtonDown("Fire1"))
-            {
-                targetLoc.GetComponent<SphereCollider>().radius = SelectedSkill.Radius;
+            {            
                 UnitInformation[] GOs = targetLoc.GetComponent<TargetChecker>().UIs.ToArray();
                 foreach(UnitInformation ui in GOs)
                 {
-                    print(ui);
+                    ui.ModifyStat(Stats.CurrentHealth, -SelectedSkill.TargetDamage);
+                    foreach(Status s in SelectedSkill.TargetStatuses)
+                    {
+                        ui.NewStatus(s);
+                    }
+                }
+
+                ModifyStat(Stats.CurrentHealth, -SelectedSkill.PlayerDamage);
+                foreach(Status s in SelectedSkill.PlayerStatuses)
+                {
+                    NewStatus(s);
                 }
             }
         }
