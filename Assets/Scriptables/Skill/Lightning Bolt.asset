@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Lightning Bolt
   m_EditorClassIdentifier: 
   Cost: 0
-  SkillCooldown: 0
-  CooldownTimer: 0
   isAvailable: 1
   Radius: 5
   Range: 0
