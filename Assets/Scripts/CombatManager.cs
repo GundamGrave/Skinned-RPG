@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class CombatManager : MonoBehaviour
 {
-    public UnitInformation[] go;
+    public List<UnitInformation> go = new List<UnitInformation>();
 
-    public UnitInformation[] battleOrder;
+    public List<UnitInformation> battleOrder = new List<UnitInformation>();
+
+    public PlayerStats Player;
 
     public int CurrentTurn;
+    public int CurrentRound = 1;
 
     public bool InCombat;
 
@@ -18,7 +21,7 @@ public class CombatManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Player = FindObjectOfType<PlayerStats>();
     }
 
     // Update is called once per frame
@@ -26,6 +29,22 @@ public class CombatManager : MonoBehaviour
     {
         if (InCombat)
         {
+            if(CurrentRound == 0 && CurrentTurn == 0)
+            {
+                foreach(UnitInformation ui in go)
+                {
+                    ui.SetStat(UnitInformation.Stats.ActionPoints, 4);
+                }
+            }
+
+            if (go.Count == 1)
+            {
+                InCombat = false;
+                Player.gameObject.GetComponent<Movement>().canMove = true;
+                CurrentRound = 1;
+                return;
+            }
+
             if (battleOrder == null)
             {
                 FindCombatants();
@@ -38,7 +57,7 @@ public class CombatManager : MonoBehaviour
                 StopCoroutine("OutsideCombat");             
             }           
 
-            if (CurrentTurn == battleOrder.Length)
+            if (CurrentTurn == battleOrder.Count)
                 CurrentTurn = 0;
 
             if (CurrentTurn == 0)
@@ -58,19 +77,21 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    public void RemoveCombatant(UnitInformation ui)
+    {
+        go.Remove(ui);
+    }
+
     private void FindCombatants()
     {
-        go = FindObjectsOfType<UnitInformation>();
-        foreach (UnitInformation u in go)
-        {
-            u.ApplyStatuses();
-        }
+        go.Clear();
+        go.AddRange(FindObjectsOfType<UnitInformation>());
     }
 
     private void UpdateSpeedList()
     {
         if (InCombat)
-        {
+        {            
             List<UnitInformation> fastList = new List<UnitInformation>();
             fastList.AddRange(go);
 
@@ -79,7 +100,7 @@ public class CombatManager : MonoBehaviour
                 return -a.GetStat(UnitInformation.Stats.Initiative).CompareTo(b.GetStat(UnitInformation.Stats.Initiative));
             });
 
-            battleOrder = fastList.ToArray();
+            battleOrder = fastList;
         }
 
         //UnitInformation nextFastest = null;

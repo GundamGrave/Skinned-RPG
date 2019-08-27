@@ -74,6 +74,16 @@ public class PlayerStats : UnitInformation
         {
             movement.canMove = true;
         }
+        else if (!targetMode && !inCombat)
+        {
+            movement.canMove = true;
+        }
+
+        if (!targetMode)
+        {
+            targetLoc.transform.position = transform.position;
+            targetLoc.DrawCircle(0f, 0f);
+        }
     }
 
     private Vector3 something() // hahhah need to name this properly (gets location of where the mouse is hovering)

@@ -33,6 +33,7 @@ public class AIStats : UnitInformation
     {
         if(GetStat(Stats.CurrentHealth) <= 0)
         {
+            CM.RemoveCombatant(this);
             player.ModifyStat(Stats.Experience, 100);
             Destroy(gameObject);
         }
