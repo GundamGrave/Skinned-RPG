@@ -14,11 +14,18 @@ public class Movement : MonoBehaviour
     private PlayerStats ps;
     private CombatManager cm;
 
+    public float distanceTravelled;
+
+    private Vector3 lastPos;
+    public bool canMove;
+
+
     [SerializeField] LayerMask mask;
 
     // Start is called before the first frame update
     void Start()
     {
+        lastPos = transform.position;
         cm = GameObject.Find("_gameManager").GetComponent<CombatManager>();
         //mask = LayerMask.GetMask("Tiles");
         navMesh = GetComponent<NavMeshAgent>();
@@ -30,13 +37,29 @@ public class Movement : MonoBehaviour
     void Update()
     {
         inCombat = cm.InCombat;
-        if (Input.GetButtonDown("Fire1"))
+        if (canMove) //movement
         {
-            if (inCombat && ps.myTurn)
-                ClickToMove();
-            else if (!inCombat)
-                ClickToMove();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (inCombat && ps.myTurn)
+                    ClickToMove();
+                else if (!inCombat)
+                    ClickToMove();
+            }
         }
+
+        if (inCombat)
+        {
+            DistanceTravel();
+        } // Distance tracker stuff
+        else
+        {
+            distanceTravelled = 0;
+        }
+        if (!ps.myTurn)
+        {
+            distanceTravelled = 0;
+        } // new turn, reset the tracker
     }
 
     private void ClickToMove()
@@ -45,12 +68,29 @@ public class Movement : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, mask))
         {
-            if (Vector3.Distance(transform.position, hit.point) <= MoveDistance)
+            if (Vector3.Distance(transform.position, hit.point) <= MoveDistance * ps.GetStat(UnitInformation.Stats.ActionPoints) && inCombat) // Combat movement, limiting. Also probably not needed...
             {
                 location = hit.point;
                 navMesh.destination = location;
                 navMesh.isStopped = false;
             }
+            else if (!inCombat)
+            {
+                location = hit.point;
+                navMesh.destination = location;
+                navMesh.isStopped = false;
+            }
+        }
+    }
+
+    public void DistanceTravel()
+    {
+        distanceTravelled += Vector3.Distance(lastPos, transform.position);
+        lastPos = transform.position;
+        if(distanceTravelled >= MoveDistance)
+        {
+            distanceTravelled -= MoveDistance;
+            ps.ModifyStat(UnitInformation.Stats.ActionPoints, -1);
         }
     }
 }

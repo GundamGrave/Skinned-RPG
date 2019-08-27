@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1824559319432997148}
   - component: {fileID: 1824559319434128348}
   - component: {fileID: 762251843837567835}
+  - component: {fileID: 5861587669047108326}
   m_Layer: 0
   m_Name: Brick Wall 02
   m_TagString: Untagged
@@ -91,3 +92,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.010251411, y: 0.024, z: 0.00078901305}
   m_Center: {x: -0.0051257056, y: 0.012, z: -0.00039450644}
+--- !u!114 &5861587669047108326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1824559319431869724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e038bf700cfa444fb16c6ef963be9f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

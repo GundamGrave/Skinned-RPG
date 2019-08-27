@@ -7,23 +7,22 @@ public class Skill : ScriptableObject
 {
     [Header("Base Skill")]
     public int Cost;
-    public int SkillCooldown;
-    public int CooldownTimer = 0;
+    //public int SkillCooldown;
+    //public int CooldownTimer = 0;
     public bool isAvailable = true;
 
     [Header("Target"), Space(10)]
     public float Radius;
+    public float Range;
 
 
     [Header("Target Effects"), Space(10)]
     public int TargetDamage;
     public Status[] TargetStatuses;
-    public int TargetStatusDuration;
 
     [Header("Self Effects"), Space(10)]
     public int PlayerDamage;
     public Status[] PlayerStatuses;
-    public int PlayerStatusDuration;
 
     [Header("Visual FX")]
     public VisualFX CasterEffects;
@@ -40,6 +39,7 @@ public class Skill : ScriptableObject
         }
     }
 
+    /*
     public void SkillTimer()
     {
         if (!isAvailable)
@@ -52,6 +52,7 @@ public class Skill : ScriptableObject
             }
         }
     }
+    */
 
     public string GetDescription()
     {

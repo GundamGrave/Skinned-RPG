@@ -47,7 +47,7 @@ public class UnitInformation : MonoBehaviour
             EndTurn();
     }
 
-    public void EndTurn()
+    public virtual void EndTurn()
     {
         CM.CurrentTurn++;
         myTurn = false;
@@ -62,6 +62,11 @@ public class UnitInformation : MonoBehaviour
         SetStat(Stats.ActionPoints, 4);
         SetStat(Stats.MaxHealth, 100);
         SetStat(Stats.CurrentHealth, 100);
+
+        SetStat(Stats.Strength, 0);
+        SetStat(Stats.Intelligence, 0);
+        SetStat(Stats.Initiative, 0);
+        SetStat(Stats.Level, 1);
     }
 
     #region Stat Stuff
@@ -102,6 +107,7 @@ public class UnitInformation : MonoBehaviour
     }
     #endregion
 
+    // Might not need this anymore
     private void LoadSkills()
     {
         //clone all skills so we have our own private copy
@@ -115,14 +121,16 @@ public class UnitInformation : MonoBehaviour
             }
         }
         // register with the turn ended event
-        TurnManager.TurnEnded.AddListener(AllSkillTimers);
+        //TurnManager.TurnEnded.AddListener(AllSkillTimers);
     }
 
+    /*
     private void AllSkillTimers()
     {
         foreach (Skill s in CurrentSkills)
             s.SkillTimer();
     }
+    */
 
     public void NewSkill(Skill skill)
     {

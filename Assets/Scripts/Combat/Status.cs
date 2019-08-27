@@ -7,7 +7,6 @@ public class Status : ScriptableObject
 {
     [Header("Base Status")]
     public int Duration;
-    public int BaseDamage;
 
     [System.Serializable]
     public struct Modifier
