@@ -31,15 +31,15 @@ public class AIStats : UnitInformation
 
     public override void Update()
     {
-        if(GetStat(Stats.CurrentHealth) <= 0)
+        base.Update();
+        AP = GetStat(Stats.ActionPoints);
+        if (GetStat(Stats.CurrentHealth) <= 0)
         {
             CM.RemoveCombatant(this);
             player.ModifyStat(Stats.Experience, 100);
             Destroy(gameObject);
         }
 
-        AP = GetStat(Stats.ActionPoints);
-        base.Update();
         if (myTurn)
         {
             navMesh.destination = player.transform.position;

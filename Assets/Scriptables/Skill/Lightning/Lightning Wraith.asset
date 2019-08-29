@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944a12db8c6d1114fb9b672ece1addd2, type: 3}
   m_Name: Lightning Wraith
   m_EditorClassIdentifier: 
-  Cost: 0
+  Cost: 3
   isAvailable: 1
-  Radius: 0
+  Radius: 2
   Range: 0
-  TargetDamage: 0
-  TargetStatuses: []
+  TargetDamage: 50
+  TargetStatuses:
+  - {fileID: 11400000, guid: b75adce406fe42d468c1d8d4e816623e, type: 2}
   PlayerDamage: 0
   PlayerStatuses: []
   CasterEffects: {fileID: 0}

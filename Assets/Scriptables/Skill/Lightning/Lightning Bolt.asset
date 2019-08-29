@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944a12db8c6d1114fb9b672ece1addd2, type: 3}
   m_Name: Lightning Bolt
   m_EditorClassIdentifier: 
-  Cost: 0
+  Cost: 2
   isAvailable: 1
-  Radius: 5
-  Range: 0
-  TargetDamage: 50
+  Radius: 0
+  Range: 5
+  TargetDamage: 10
   TargetStatuses:
   - {fileID: 11400000, guid: b75adce406fe42d468c1d8d4e816623e, type: 2}
   PlayerDamage: 0

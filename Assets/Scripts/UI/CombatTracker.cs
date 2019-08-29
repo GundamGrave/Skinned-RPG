@@ -7,7 +7,7 @@ public class CombatTracker : MonoBehaviour
 
     public int NumberOfActionPoints;
 
-    public RawImage[] actionPoints;
+    public Image[] actionPoints;
     public Material[] materials;
 
     [SerializeField] UnitInformation player;
@@ -24,9 +24,9 @@ public class CombatTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NumberOfActionPoints = 0;//player.ActionPoints;
+        NumberOfActionPoints = (int)player.GetStat(UnitInformation.Stats.ActionPoints);
         int counter = 0;
-        foreach(RawImage raw in actionPoints)
+        foreach(Image raw in actionPoints)
         {
             if(counter < NumberOfActionPoints)
             {
