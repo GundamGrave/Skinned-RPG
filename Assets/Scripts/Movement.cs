@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 
 public class Movement : MonoBehaviour
 {
@@ -39,13 +40,16 @@ public class Movement : MonoBehaviour
         inCombat = cm.InCombat;
         if (canMove) //movement
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (EventSystem.current.IsPointerOverGameObject(-1) == false) // not over UI
             {
-                if (inCombat && ps.myTurn)
-                    ClickToMove();
-                else if (!inCombat)
-                    ClickToMove();
-            }
+                if (Input.GetButtonDown("Fire1"))
+                {
+                    if (inCombat && ps.myTurn)
+                        ClickToMove();
+                    else if (!inCombat)
+                        ClickToMove();
+                }
+            } 
         }
 
         if (inCombat)
