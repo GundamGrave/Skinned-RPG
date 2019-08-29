@@ -9,6 +9,7 @@ public class CombatManager : MonoBehaviour
     public List<UnitInformation> battleOrder = new List<UnitInformation>();
 
     public PlayerStats Player;
+    private UnitInformation CurrentUnit;
 
     public int CurrentTurn;
     public int CurrentRound = 1;
@@ -63,6 +64,7 @@ public class CombatManager : MonoBehaviour
             if (CurrentTurn == 0)
                 UpdateSpeedList();
 
+            CurrentUnit = battleOrder[CurrentTurn];
             battleOrder[CurrentTurn].myTurn = true;  
         }
         else
@@ -80,6 +82,8 @@ public class CombatManager : MonoBehaviour
     public void RemoveCombatant(UnitInformation ui)
     {
         go.Remove(ui);
+        UpdateSpeedList();
+        CurrentTurn = battleOrder.FindIndex(npcString => npcString == CurrentUnit);
     }
 
     private void FindCombatants()

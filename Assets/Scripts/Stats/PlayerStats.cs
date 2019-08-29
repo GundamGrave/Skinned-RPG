@@ -7,7 +7,7 @@ public class PlayerStats : UnitInformation
     public int str, intel, init;
 
     public bool inCombat;
-    private Movement movement;
+    public Movement movement;
 
     public bool targetMode;
     public GameObject targetLoc;
@@ -44,46 +44,6 @@ public class PlayerStats : UnitInformation
     {
         base.Update();
         LevelUp();
-
-        if (targetMode)
-        {
-            movement.canMove = false;
-            targetLoc.transform.position = something() + new Vector3(0, 0.15f, 0);
-            targetLoc.DrawCircle(SelectedSkill.Radius, 0.1f);
-            targetLoc.GetComponent<SphereCollider>().radius = SelectedSkill.Radius;
-            if (Input.GetButtonDown("Fire1"))
-            {            
-                UnitInformation[] GOs = targetLoc.GetComponent<TargetChecker>().UIs.ToArray();
-                foreach(UnitInformation ui in GOs)
-                {
-                    ui.ModifyStat(Stats.CurrentHealth, -SelectedSkill.TargetDamage);
-                    foreach(Status s in SelectedSkill.TargetStatuses)
-                    {
-                        ui.NewStatus(s);
-                    }
-                }
-
-                ModifyStat(Stats.CurrentHealth, -SelectedSkill.PlayerDamage);
-                foreach(Status s in SelectedSkill.PlayerStatuses)
-                {
-                    NewStatus(s);
-                }
-            }
-        }
-        else if (!targetMode && inCombat && myTurn)
-        {
-            movement.canMove = true;
-        }
-        else if (!targetMode && !inCombat)
-        {
-            movement.canMove = true;
-        }
-
-        if (!targetMode)
-        {
-            targetLoc.transform.position = transform.position;
-            targetLoc.DrawCircle(0f, 0f);
-        }
     }
 
     private Vector3 something() // hahhah need to name this properly (gets location of where the mouse is hovering)

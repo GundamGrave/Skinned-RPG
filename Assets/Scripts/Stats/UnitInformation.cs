@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UnitInformation : MonoBehaviour
 {
+    public float InitiativeL;
     public List<Skill> CurrentSkills;
     public List<Status> CurrentStatuses = new List<Status>();
 
@@ -69,7 +70,7 @@ public class UnitInformation : MonoBehaviour
 
         SetStat(Stats.Strength, 0);
         SetStat(Stats.Intelligence, 0);
-        SetStat(Stats.Initiative, 0);
+        SetStat(Stats.Initiative, InitiativeL);
         SetStat(Stats.Level, 1);
     }
 
