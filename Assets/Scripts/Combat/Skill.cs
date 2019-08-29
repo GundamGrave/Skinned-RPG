@@ -59,7 +59,14 @@ public class Skill : ScriptableObject
         string desc = "";
         desc += "<b>" + name + "</b>";
         desc += "\n" + Cost.ToString() + " Energy";
-        desc += "\n" + TargetDamage.ToString() + " Damage";
+        if (TargetDamage > 0)
+        {
+            desc += "\n" + TargetDamage.ToString() + " Damage";
+        }
+        if(PlayerDamage < 0)
+        {
+            desc += "\n" + (-PlayerDamage).ToString() + " Heal";
+        }
         return desc;
     }
 }

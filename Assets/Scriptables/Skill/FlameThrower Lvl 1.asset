@@ -16,7 +16,7 @@ MonoBehaviour:
   isAvailable: 1
   Radius: 0
   Range: 0
-  TargetDamage: 10
+  TargetDamage: 3
   TargetStatuses:
   - {fileID: 0}
   PlayerDamage: 0

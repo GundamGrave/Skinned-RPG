@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944a12db8c6d1114fb9b672ece1addd2, type: 3}
   m_Name: HealSelf
   m_EditorClassIdentifier: 
-  Cost: 1
+  Cost: 4
   isAvailable: 1
   Radius: 1
   Range: 0
   TargetDamage: 0
   TargetStatuses: []
-  PlayerDamage: 4
-  PlayerStatuses: []
+  PlayerDamage: -4
+  PlayerStatuses:
+  - {fileID: 0}
   CasterEffects: {fileID: 11400000, guid: 50aa1e536d8c35b44a686008174cc41d, type: 2}
   TargetEffects: {fileID: 0}

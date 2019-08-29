@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: Basic Attack
   m_EditorClassIdentifier: 
   Cost: 0
-  SkillCooldown: 0
-  CooldownTimer: 0
   isAvailable: 1
   Radius: 0
+  Range: 0
   TargetDamage: 0
   TargetStatuses: []
   PlayerDamage: 0
