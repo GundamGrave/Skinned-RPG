@@ -9,8 +9,6 @@ public class PlayerStats : UnitInformation
     public bool inCombat;
     public Movement movement;
 
-    public bool targetMode;
-    public GameObject targetLoc;
     [SerializeField] LayerMask mask;
 
     public Skill SelectedSkill;
@@ -28,16 +26,6 @@ public class PlayerStats : UnitInformation
         base.Start();
 
         movement = GetComponent<Movement>();
-
-        targetLoc = new GameObject();
-        targetLoc.AddComponent<SphereCollider>();
-        targetLoc.GetComponent<SphereCollider>().isTrigger = true;
-        targetLoc.AddComponent<TargetChecker>();
-        targetLoc.transform.parent = transform;
-        targetLoc.name = "Target Location";
-        targetLoc.AddComponent<Rigidbody>();
-        targetLoc.GetComponent<Rigidbody>().isKinematic = true;
-        targetLoc.GetComponent<Rigidbody>().useGravity = false;
     }
 
     public override void Update()

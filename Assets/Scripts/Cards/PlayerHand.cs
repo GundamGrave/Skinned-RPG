@@ -14,10 +14,12 @@ public class PlayerHand : MonoBehaviour
 
     public PlayHand[] usableCard;
     PlayerStats ps;
+    PlayerRaycast pr;
 
     private void Start()
     {
         ps = GetComponent<PlayerStats>();
+        pr = GetComponent<PlayerRaycast>();
     }
 
     void Update()
@@ -26,9 +28,26 @@ public class PlayerHand : MonoBehaviour
         {
             if (Input.GetKeyDown(usableCard[i].key))
             {
-                // Check if player has enough mana
-                // If so go into "target" mode
-                Debug.Log(usableCard[i].card.name);
+                if(ps.SelectedSkill == usableCard[i].card.Spell)
+                {
+                    ps.SelectedSkill = null;
+                    pr.targeting = false;
+                    pr.radiusMode = false;
+                }
+                else
+                {
+                    ps.SelectedSkill = usableCard[i].card.Spell;
+                    pr.targeting = true;
+                    if(usableCard[i].card.Spell.Radius == 0)
+                    {
+                        pr.radiusMode = false;
+                    }
+                    else
+                    {
+                        pr.radiusMode = true;
+                    }
+                }
+                
                                              
             }
                 
