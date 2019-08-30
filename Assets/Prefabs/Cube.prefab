@@ -151,8 +151,8 @@ GameObject:
   - component: {fileID: 6841557650109935233}
   - component: {fileID: 6841557650109935235}
   - component: {fileID: 6841557650109935232}
-  - component: {fileID: 6841557650109935234}
   - component: {fileID: 6841557650109935239}
+  - component: {fileID: 6841557650109935234}
   - component: {fileID: 1089274370}
   m_Layer: 0
   m_Name: Cube
@@ -236,23 +236,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6841557650109935234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6841557650109935261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ad85d97efa08e44497777db0b293a39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveDistance: 100
-  inCombat: 0
-  mask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!195 &6841557650109935239
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -275,6 +258,25 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &6841557650109935234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6841557650109935261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad85d97efa08e44497777db0b293a39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveDistance: 100
+  inCombat: 0
+  distanceTravelled: 0
+  canMove: 0
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &1089274370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,8 +289,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93295deae1e11e54582bb3d6c0af765f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitiativeL: 0
   CurrentSkills: []
   CurrentStatuses: []
+  CM: {fileID: 0}
+  myTurn: 0
+  Image: {fileID: 0}
+  RawImage: {fileID: 0}
+  Sprite: {fileID: 0}
+  str: 0
+  intel: 0
+  init: 0
+  inCombat: 0
+  movement: {fileID: 0}
+  mask:
+    serializedVersion: 2
+    m_Bits: 0
+  SelectedSkill: {fileID: 0}
 --- !u!1 &6841557650315948188
 GameObject:
   m_ObjectHideFlags: 0

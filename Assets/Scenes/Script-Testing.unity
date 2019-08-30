@@ -2526,6 +2526,30 @@ MonoBehaviour:
     key: 49
   - card: {fileID: 11400000, guid: d682ed220bcefc04dab34485413f2fa0, type: 2}
     key: 50
+--- !u!114 &1467471611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467471608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2975c1114ad544d8f977255564936f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Deck:
+  - {fileID: 11400000, guid: f099f4ab4e72c5c4fb6da43cc3b3cd34, type: 2}
+  - {fileID: 11400000, guid: f099f4ab4e72c5c4fb6da43cc3b3cd34, type: 2}
+  - {fileID: 11400000, guid: d682ed220bcefc04dab34485413f2fa0, type: 2}
+  - {fileID: 11400000, guid: d682ed220bcefc04dab34485413f2fa0, type: 2}
+  - {fileID: 11400000, guid: f099f4ab4e72c5c4fb6da43cc3b3cd34, type: 2}
+  - {fileID: 11400000, guid: f099f4ab4e72c5c4fb6da43cc3b3cd34, type: 2}
+  - {fileID: 11400000, guid: f099f4ab4e72c5c4fb6da43cc3b3cd34, type: 2}
+  - {fileID: 11400000, guid: f099f4ab4e72c5c4fb6da43cc3b3cd34, type: 2}
+  - {fileID: 11400000, guid: f099f4ab4e72c5c4fb6da43cc3b3cd34, type: 2}
+  - {fileID: 11400000, guid: f099f4ab4e72c5c4fb6da43cc3b3cd34, type: 2}
+  maxCards: 10
 --- !u!114 &1467471616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2591,6 +2615,29 @@ MonoBehaviour:
   q: {x: 0.68, y: 0, z: 0, w: 1}
   p: {x: 0, y: 9.39, z: -4}
   speed: 0
+--- !u!114 &1469138619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1469138613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 436275a13d4459746955fc6db5953473, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _active: 0
+  _enableRotation: 1
+  _mouseSense: 1.8
+  _enableTranslation: 1
+  _translationSpeed: 55
+  _enableMovement: 1
+  _movementSpeed: 10
+  _boostedSpeed: 50
+  _enableSpeedAcceleration: 0
+  _speedAccelerationFactor: 1.5
+  _initPositonButton: 114
 --- !u!1 &1472231655
 GameObject:
   m_ObjectHideFlags: 0
@@ -3484,8 +3531,7 @@ PrefabInstance:
     - target: {fileID: 1089274370, guid: ce2b72bd6b4b9d743bb251978d7f97a5, type: 3}
       propertyPath: SelectedSkill
       value: 
-      objectReference: {fileID: 11400000, guid: 9471ee497a6d29a4787dcd8f806e909b,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 1089274370, guid: ce2b72bd6b4b9d743bb251978d7f97a5, type: 3}
       propertyPath: CurrentSkills.Array.data[1]
       value: 
@@ -3590,7 +3636,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1828090736}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f637265d64cc817438365e0290b90784, type: 3}
   m_Name: 

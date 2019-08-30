@@ -12,19 +12,24 @@ public class PlayerHand : MonoBehaviour
         public KeyCode key;
     }
 
-    public PlayHand[] usableCard;
+    public List<PlayHand> usableCard;
+    public int MaxCards;
     PlayerStats ps;
     PlayerRaycast pr;
+    PlayerDeck pd;
+
+    public bool drawCards = false;
 
     private void Start()
     {
         ps = GetComponent<PlayerStats>();
         pr = GetComponent<PlayerRaycast>();
+        pd = GetComponent<PlayerDeck>();
     }
 
     void Update()
     {
-        for (int i = 0; i < usableCard.Length; i++)
+        for (int i = 0; i < usableCard.Count; i++)
         {
             if (Input.GetKeyDown(usableCard[i].key))
             {
@@ -53,5 +58,41 @@ public class PlayerHand : MonoBehaviour
                 
         }
 
+        if (ps.myTurn)
+        {
+            if (drawCards)
+            {
+                if (usableCard.Count < MaxCards)
+                {
+                    int NumOfNewCards = MaxCards - usableCard.Count;
+                    int[] NewCards = new int[NumOfNewCards];
+                    for (int i = 0; i < NewCards.Length; i++)
+                    {
+                        NewCards[i] = Random.Range(0, pd.Deck.Count - 1);
+                    }
+
+                    foreach (int i in NewCards)
+                    {
+                        PlayHand hand = new PlayHand();
+                        hand.card = pd.Deck[i];
+                        hand.key = (KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha" + (usableCard.Count + 1));
+                        usableCard.Add(hand);
+                    }
+                }
+                drawCards = false;
+            }
+        }
+        else
+        {
+            drawCards = true;
+        }
+
+        if(usableCard.Count > MaxCards)
+        {
+            for(int i = usableCard.Count - 1; i > MaxCards; i--)
+            {
+                usableCard.RemoveAt(i);
+            }
+        }
     }
 }

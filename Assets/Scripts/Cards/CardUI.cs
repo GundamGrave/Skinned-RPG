@@ -7,6 +7,9 @@ using TMPro;
 
 public class CardUI : MonoBehaviour
 {
+    PlayerHand ph;
+    PlayerHand.PlayHand play;
+    public DeckUI dUI;
     public CompleteCard completeCard;
 
     public TextMeshProUGUI cardNameTag;
@@ -22,11 +25,17 @@ public class CardUI : MonoBehaviour
     public Image intArt;
     public Image spdArt;
 
+    public int index;
+
 
     // Start is called before the first frame update
     void Start()
     {
         SetCompleteCard(completeCard);
+        ph = FindObjectOfType<PlayerHand>();
+        play = new PlayerHand.PlayHand();
+        play.card = completeCard;
+        play.key = (KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha" + (index + 1));
     }
 
     // Update is called once per frame
@@ -69,5 +78,12 @@ public class CardUI : MonoBehaviour
                 spdModTag.text = "";
 
         }
+    }
+
+    public void Press()
+    {
+        ph.usableCard.Remove(play);
+        dUI.NumberOfShownCards--;
+        Destroy(gameObject);
     }
 }

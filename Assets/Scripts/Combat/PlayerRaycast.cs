@@ -36,7 +36,10 @@ public class PlayerRaycast : MonoBehaviour
         {
             ps.movement.canMove = false;
             skill = ps.SelectedSkill;
-            if (radiusMode)
+            if (skill == null)
+                return;
+
+            if (radiusMode) // Targeting enemies in a radius
             {
                 targetLoc.transform.position = something() + new Vector3(0, 0.15f, 0);
                 targetLoc.DrawCircle(skill.Radius, 0.1f);
@@ -60,6 +63,7 @@ public class PlayerRaycast : MonoBehaviour
                     }
                 }
             }
+
             else // Select specific targets in a radius
             {
                 targetLoc.transform.position = transform.position;
