@@ -38,6 +38,11 @@ public class Movement : MonoBehaviour
     void Update()
     {
         inCombat = cm.InCombat;
+        if(inCombat && !ps.myTurn)
+        {
+            navMesh.destination = transform.position;
+        }
+
         if (canMove) //movement
         {
             if (EventSystem.current.IsPointerOverGameObject(-1) == false) // not over UI

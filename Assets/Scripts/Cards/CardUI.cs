@@ -8,6 +8,7 @@ using TMPro;
 public class CardUI : MonoBehaviour
 {
     PlayerHand ph;
+    PlayerStats ps;
     PlayerHand.PlayHand play;
     public DeckUI dUI;
     public CompleteCard completeCard;
@@ -33,6 +34,7 @@ public class CardUI : MonoBehaviour
     {
         SetCompleteCard(completeCard);
         ph = FindObjectOfType<PlayerHand>();
+        ps = ph.gameObject.GetComponent<PlayerStats>();
         play = new PlayerHand.PlayHand();
         play.card = completeCard;
         play.key = (KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha" + (index + 1));
@@ -82,8 +84,13 @@ public class CardUI : MonoBehaviour
 
     public void Press()
     {
-        ph.usableCard.Remove(play);
-        dUI.NumberOfShownCards--;
-        Destroy(gameObject);
+        if (ps.GetStat(UnitInformation.Stats.ActionPoints) >= completeCard.Spell.Cost)
+        {
+            ps.gameObject.GetComponent<PlayerRaycast>().cUI = this;
+            ps.ModifyStat(UnitInformation.Stats.ActionPoints, -completeCard.Spell.Cost);
+            ph.usableCard.Remove(play);
+            dUI.NumberOfShownCards--;
+            Destroy(gameObject);
+        }
     }
 }

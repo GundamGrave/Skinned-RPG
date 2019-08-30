@@ -13,6 +13,7 @@ public class PlayerRaycast : MonoBehaviour
     public bool targeting;
     public bool radiusMode;
     public Skill skill;
+    public CardUI cUI;
     // Start is called before the first frame update
     void Start()
     {
