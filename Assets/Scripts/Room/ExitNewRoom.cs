@@ -27,6 +27,12 @@ public class ExitNewRoom : MonoBehaviour
     {
         Room = FindObjectOfType<RoomTag>().gameObject;
         OrigPos = Room.GetComponent<RoomTag>().OrigPos;
+
+        UnitInformation[] ui = FindObjectsOfType<UnitInformation>();
+        if (ui.Length == 1)
+        {
+            //Empty = true;
+        }
     }
 
     // Update is called once per frame

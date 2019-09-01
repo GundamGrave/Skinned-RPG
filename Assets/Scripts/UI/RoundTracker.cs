@@ -23,7 +23,16 @@ public class RoundTracker : MonoBehaviour
     {
         if (CM.InCombat)
         {
-            if (!Visible && CM.battleOrder != null)
+            if (!Visible)
+            {
+                foreach (Image i in Combatants)
+                {
+                    i.gameObject.SetActive(true);
+                }
+                Visible = true;
+            }
+
+            if (Visible && CM.battleOrder != null)
             {
                 int counter = 0;
                 while (counter < 7)
@@ -43,8 +52,7 @@ public class RoundTracker : MonoBehaviour
                         if (counter == 7)
                             break;
                     }
-                }
-                Visible = true;
+                }                
             }
 
             if (Visible)
@@ -68,6 +76,7 @@ public class RoundTracker : MonoBehaviour
             {
                 i.gameObject.SetActive(false);
             }
+            Visible = false;
         }
     }
 }

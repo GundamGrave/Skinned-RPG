@@ -9,6 +9,10 @@ public class CombatManager : MonoBehaviour
     public List<UnitInformation> battleOrder = new List<UnitInformation>();
 
     public PlayerStats Player;
+
+    public GameObject CardCanvas;
+    public GameObject CombatCanvas;
+
     private UnitInformation CurrentUnit;
 
     public int CurrentTurn;
@@ -30,33 +34,34 @@ public class CombatManager : MonoBehaviour
     {
         if (InCombat)
         {
-            if(CurrentRound == 0 && CurrentTurn == 0)
+            CardCanvas.SetActive(true);
+            CombatCanvas.SetActive(true);
+
+            if (battleOrder == null)
             {
-                foreach(UnitInformation ui in go)
+                FindCombatants();
+                UpdateSpeedList();
+            } // Start of Combat
+
+            if (CurrentRound == 0 && CurrentTurn == 0)
+            {
+                foreach (UnitInformation ui in go)
                 {
                     ui.SetStat(UnitInformation.Stats.ActionPoints, 4);
                 }
-            }
+            } // Beginning of Combat
+
+            CurrentUnit = battleOrder[CurrentTurn];
+            battleOrder[CurrentTurn].myTurn = true;            
 
             if (go.Count == 1)
             {
                 InCombat = false;
                 Player.gameObject.GetComponent<Movement>().canMove = true;
                 CurrentRound = 1;
+                FindObjectOfType<ExitNewRoom>().Empty = true;
                 return;
-            }
-
-            if (battleOrder == null)
-            {
-                FindCombatants();
-                UpdateSpeedList();
-            }
-
-            if (timerRunning)
-            {
-                timerRunning = false;
-                StopCoroutine("OutsideCombat");             
-            }           
+            } // Ending combat
 
             if (CurrentTurn == battleOrder.Count)
                 CurrentTurn = 0;
@@ -64,11 +69,16 @@ public class CombatManager : MonoBehaviour
             if (CurrentTurn == 0)
                 UpdateSpeedList();
 
-            CurrentUnit = battleOrder[CurrentTurn];
-            battleOrder[CurrentTurn].myTurn = true;  
+            if (timerRunning) // Start of Combat
+            {
+                timerRunning = false;
+                StopCoroutine("OutsideCombat");
+            }
         }
         else
         {
+            CardCanvas.SetActive(false);
+            CombatCanvas.SetActive(false);
             battleOrder = null;
             if (!timerRunning)
             {

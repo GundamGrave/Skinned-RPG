@@ -55,6 +55,9 @@ public class UnitInformation : MonoBehaviour
     public virtual void EndTurn()
     {
         CM.CurrentTurn++;
+        if (CM.CurrentTurn == CM.battleOrder.Count)
+            CM.CurrentTurn = 0;
+
         myTurn = false;
 
         ModifyStat(Stats.ActionPoints, 4);

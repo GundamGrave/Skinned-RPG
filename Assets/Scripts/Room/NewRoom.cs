@@ -6,10 +6,16 @@ using UnityEngine.AI;
 public class NewRoom : MonoBehaviour
 {
     public RoomInfo room;
-    public GameObject tile2x2;
-    public GameObject exit;
+    private GameObject tile2x2;
+    private GameObject exit;
 
     Vector3 v3Exit;
+
+    private void Start()
+    {
+        tile2x2 = (GameObject)Resources.Load("2x2");
+        exit = (GameObject)Resources.Load("2x2Exit");
+    }
 
     private void OnTriggerEnter(Collider other)
     {

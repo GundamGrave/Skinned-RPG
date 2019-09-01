@@ -63,6 +63,7 @@ public class Movement : MonoBehaviour
         } // Distance tracker stuff
         else
         {
+            lastPos = transform.position;
             distanceTravelled = 0;
         }
         if (!ps.myTurn)

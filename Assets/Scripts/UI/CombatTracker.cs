@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class CombatTracker : MonoBehaviour
 {
-
     public int NumberOfActionPoints;
+    public CombatManager CM;
 
     public Image[] actionPoints;
     public Material[] materials;
@@ -14,28 +14,27 @@ public class CombatTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Find selected Unit
-
-        //Show how many action points they have
-        //NumberOfActionPoints = player.ActionPoints;
-
+        CM = FindObjectOfType<CombatManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        NumberOfActionPoints = (int)player.GetStat(UnitInformation.Stats.ActionPoints);
-        int counter = 0;
-        foreach(Image raw in actionPoints)
+        if (CM.InCombat)
         {
-            if(counter < NumberOfActionPoints)
+            NumberOfActionPoints = (int)player.GetStat(UnitInformation.Stats.ActionPoints);
+            int counter = 0;
+            foreach (Image raw in actionPoints)
             {
-                raw.material = materials[0];
-                counter++;
-            }
-            else
-            {
-                raw.material = materials[1];
+                if (counter < NumberOfActionPoints)
+                {
+                    raw.material = materials[0];
+                    counter++;
+                }
+                else
+                {
+                    raw.material = materials[1];
+                }
             }
         }
     }
