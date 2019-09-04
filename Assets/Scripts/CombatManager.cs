@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CombatManager : MonoBehaviour
 {
@@ -22,6 +23,10 @@ public class CombatManager : MonoBehaviour
 
     public int outsideCombatTimer = 5;
     bool timerRunning = false;
+
+    public Image[] Combatants;
+    public int MaxNumberVis = 7;
+    public bool Visible = false;
 
     // Start is called before the first frame update
     void Start()
@@ -60,6 +65,7 @@ public class CombatManager : MonoBehaviour
                 Player.gameObject.GetComponent<Movement>().canMove = true;
                 CurrentRound = 1;
                 FindObjectOfType<ExitNewRoom>().Empty = true;
+                ManageCombatOrderVisuals();
                 return;
             } // Ending combat
 
@@ -68,6 +74,8 @@ public class CombatManager : MonoBehaviour
 
             if (CurrentTurn == 0)
                 UpdateSpeedList();
+
+            ManageCombatOrderVisuals();
 
             if (timerRunning) // Start of Combat
             {
@@ -159,6 +167,67 @@ public class CombatManager : MonoBehaviour
                 TurnManager.TurnEnded.Invoke();
                 outsideCombatTimer = 5;
             }
+        }
+    }
+
+    private void ManageCombatOrderVisuals()
+    {
+        if (InCombat)
+        {
+            if (!Visible)
+            {
+                foreach (Image i in Combatants)
+                {
+                    i.gameObject.SetActive(true);
+                }
+                Visible = true;
+            }
+
+            if (Visible && battleOrder != null)
+            {
+                int counter = 0;
+                while (counter < 7)
+                {
+                    foreach (UnitInformation ui in battleOrder)
+                    {
+                        /*GameObject combatant = new GameObject();
+                        combatant.AddComponent<Image>();
+                        combatant.GetComponent<Image>().sprite = ui.Sprite;
+                        combatant.transform.parent = gameObject.transform; 
+                        int pos = (-125) * counter;
+                        v = new Vector3(0, pos, 0);
+                        combatant.GetComponent<RectTransform>().localPosition = v;
+                        Combatants.Add(combatant);*/
+                        Combatants[counter].sprite = ui.Sprite;
+                        counter++;
+                        if (counter == 7)
+                            break;
+                    }
+                }
+            }
+
+            if (Visible)
+            {
+                //Get whose turn it is
+                //Display them first, then everyone else after them
+                int n = CurrentTurn;
+                foreach (Image i in Combatants)
+                {
+                    i.sprite = battleOrder[n].Sprite;
+                    n++;
+                    if (n == battleOrder.Count)
+                        n = 0;
+                }
+            }
+        }
+
+        if (!InCombat && Visible)
+        {
+            foreach (Image i in Combatants)
+            {
+                i.gameObject.SetActive(false);
+            }
+            Visible = false;
         }
     }
 }
