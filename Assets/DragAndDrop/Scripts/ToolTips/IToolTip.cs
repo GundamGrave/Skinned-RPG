@@ -6,6 +6,6 @@ namespace DragAndDrop
 {
     public interface IToolTip
     {
-        string getToolTipMessage();
+         string getToolTipMessage();
     }
 }
