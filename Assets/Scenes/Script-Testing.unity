@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.05129359, g: 0.063844986, b: 0.077099495, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -312,7 +312,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.14509805, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -619,7 +619,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 320164147}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63ac2f66d6d33c84a803dd192f7fb0f1, type: 3}
   m_Name: 
@@ -655,7 +655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &341834968
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1654,7 +1654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!195 &1030253393
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -4238,7 +4238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!54 &2108941175
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4625,6 +4625,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
         type: 3}
+      propertyPath: Combatants.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
+        type: 3}
       propertyPath: CardCanvas
       value: 
       objectReference: {fileID: 1876712439}
@@ -4633,6 +4638,41 @@ PrefabInstance:
       propertyPath: CombatCanvas
       value: 
       objectReference: {fileID: 1454277833}
+    - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
+        type: 3}
+      propertyPath: Combatants.Array.data[0]
+      value: 
+      objectReference: {fileID: 2141338978}
+    - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
+        type: 3}
+      propertyPath: Combatants.Array.data[1]
+      value: 
+      objectReference: {fileID: 1939860982}
+    - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
+        type: 3}
+      propertyPath: Combatants.Array.data[2]
+      value: 
+      objectReference: {fileID: 353057551}
+    - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
+        type: 3}
+      propertyPath: Combatants.Array.data[3]
+      value: 
+      objectReference: {fileID: 1763709221}
+    - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
+        type: 3}
+      propertyPath: Combatants.Array.data[4]
+      value: 
+      objectReference: {fileID: 247135014}
+    - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
+        type: 3}
+      propertyPath: Combatants.Array.data[5]
+      value: 
+      objectReference: {fileID: 483710633}
+    - target: {fileID: 2030568558116290425, guid: bae453e291f3e1548bca42d01dfac6a0,
+        type: 3}
+      propertyPath: Combatants.Array.data[6]
+      value: 
+      objectReference: {fileID: 2085147998}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bae453e291f3e1548bca42d01dfac6a0, type: 3}
 --- !u!1001 &4631282798821857603

@@ -29,7 +29,7 @@ public class DeckUI : MonoBehaviour
     private void ShowCards()
     {
         int counter = -1;
-        foreach (PlayerHand.PlayHand ph in player.usableCard)
+        foreach (PlayHand ph in player.usableCard)
         {
             counter++;
             if (counter >= NumberOfShownCards)
@@ -37,7 +37,7 @@ public class DeckUI : MonoBehaviour
                 // make a new UI object to show this card
                 CardUI ui = Instantiate(prefab, transform);
                 // set the new UI objects data to display this card
-                ui.SetCompleteCard(ph.card);
+                ui.SetCompleteCard(ph.GetCard());
                 ui.index = counter;
                 ui.dUI = this;
                 NumberOfShownCards++;
