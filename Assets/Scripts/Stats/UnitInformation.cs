@@ -16,8 +16,6 @@ public class UnitInformation : MonoBehaviour
     public bool myTurn;
 
     public static UnityEvent StatsChanged = new UnityEvent();
-    public Image Image;
-    public RawImage RawImage;
     public Sprite Sprite;
 
     public enum Stats
