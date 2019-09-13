@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 944a12db8c6d1114fb9b672ece1addd2, type: 3}
   m_Name: Basic Attack
   m_EditorClassIdentifier: 
-  Cost: 0
+  Cost: 2
   isAvailable: 1
   Radius: 0
-  Range: 0
-  TargetDamage: 0
+  Range: 3
+  TargetDamage: 15
   TargetStatuses: []
   PlayerDamage: 0
   PlayerStatuses: []
