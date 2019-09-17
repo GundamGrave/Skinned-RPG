@@ -43,7 +43,7 @@ public class NewRoom : MonoBehaviour
                         GameObject e = Instantiate(enemy);
                         //e.GetComponent<NavMeshAgent>().enabled = false;
                         e.transform.parent = NewRoom.transform;
-                        e.transform.localPosition = tile.transform.localPosition;
+                        e.transform.localPosition = new Vector3(2 * x, 1, 2 * z);
                         enemies.Add(e);
                     }
                     else if (i == 2)
@@ -68,11 +68,6 @@ public class NewRoom : MonoBehaviour
             other.GetComponent<NavMeshAgent>().enabled = false;
             other.transform.position = v3Exit;
             other.GetComponent<NavMeshAgent>().enabled = true;
-            foreach(GameObject go in enemies)
-            {
-                go.GetComponent<NavMeshAgent>().enabled = true;
-            }
-
             gameObject.GetComponent<CapsuleCollider>().enabled = false;
         }
     }

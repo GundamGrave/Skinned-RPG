@@ -22,35 +22,7 @@ public class PlayerHand : MonoBehaviour
     void Update()
     {
         //  press keys to select/deselect cards
-        for (int i = 0; i < usableCard.Count; i++)
-        {
-            if (Input.GetKeyDown(usableCard[i].GetKey()))
-            {
-                if(ps.SelectedSkill == usableCard[i].GetCard().Spell)
-                {
-                    // cancel the card on a second click
-                    ps.SelectedSkill = null;
-                    pr.targeting = false;
-                    pr.radiusMode = false;
-                }
-                else
-                {
-                    ps.SelectedSkill = usableCard[i].GetCard().Spell;
-                    pr.targeting = true;
-                    if(usableCard[i].GetCard().Spell.Radius == 0)
-                    {
-                        pr.radiusMode = false;
-                    }
-                    else
-                    {
-                        pr.radiusMode = true;
-                    }
-                }
-                
-                                             
-            }
-                
-        }
+        
 
         if (ps.myTurn)
         {
@@ -91,9 +63,9 @@ public class PlayerHand : MonoBehaviour
         }
     }
 
-    public void RemoveCard(PlayHand ph)
+    public void RemoveCard(int index)
     {
-        usableCard.Remove(ph);
+        usableCard.RemoveAt(index);
         int counter = 0;
         for(int i = 0; i < usableCard.Count; i++)
         {

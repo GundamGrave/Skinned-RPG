@@ -16,7 +16,7 @@ MonoBehaviour:
   isAvailable: 1
   Radius: 2
   Range: 5
-  TargetDamage: 20
+  TargetDamage: 6
   TargetStatuses:
   - {fileID: 11400000, guid: 673ffc15751210347b6787d0a9e4c1ac, type: 2}
   PlayerDamage: 0

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class CombatManager : MonoBehaviour
 {
@@ -48,29 +49,30 @@ public class CombatManager : MonoBehaviour
                 UpdateSpeedList();
             } // Start of Combat
 
-            if (CurrentRound == 0 && CurrentTurn == 0)
+            if (!battleOrder[CurrentTurn].myTurn)
             {
-                foreach (UnitInformation ui in go)
-                {
-                    ui.SetStat(UnitInformation.Stats.ActionPoints, 4);
-                }
-            } // Beginning of Combat
-
-            CurrentUnit = battleOrder[CurrentTurn];
-            battleOrder[CurrentTurn].myTurn = true;            
+                CurrentUnit = battleOrder[CurrentTurn];
+                battleOrder[CurrentTurn].myTurn = true;
+                battleOrder[CurrentTurn].ApplyStatuses();
+            }           
 
             if (go.Count == 1)
             {
                 InCombat = false;
                 Player.gameObject.GetComponent<Movement>().canMove = true;
-                CurrentRound = 1;
+                Player.myTurn = false;
+                CurrentRound = 0;
+                CurrentTurn = 0;
                 FindObjectOfType<ExitNewRoom>().Empty = true;
                 ManageCombatOrderVisuals();
                 return;
             } // Ending combat
 
             if (CurrentTurn == battleOrder.Count)
+            {
                 CurrentTurn = 0;
+                CurrentRound++;
+            }
 
             if (CurrentTurn == 0)
                 UpdateSpeedList();
@@ -103,13 +105,22 @@ public class CombatManager : MonoBehaviour
     {
         go.Remove(ui);
         UpdateSpeedList();
-        CurrentTurn = battleOrder.FindIndex(npcString => npcString == CurrentUnit);
+        if (CurrentTurn >= battleOrder.Count)
+        {
+            CurrentTurn = 0;
+            CurrentRound++;
+        }
     }
 
     private void FindCombatants()
     {
         go.Clear();
         go.AddRange(FindObjectsOfType<UnitInformation>());
+        foreach(UnitInformation ui in go)
+        {
+            ui.GetComponent<NavMeshAgent>().enabled = true;
+            ui.GetComponent<NavMeshAgent>().isStopped = true;
+        }
     }
 
     private void UpdateSpeedList()
@@ -208,6 +219,15 @@ public class CombatManager : MonoBehaviour
                 i.gameObject.SetActive(false);
             }
             Visible = false;
+        }
+    }
+
+    public void StartCombat()
+    {
+        CurrentRound = 0;
+        foreach (UnitInformation ui in go)
+        {
+            ui.SetStat(UnitInformation.Stats.ActionPoints, 4);
         }
     }
 

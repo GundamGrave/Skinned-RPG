@@ -9,6 +9,8 @@ public class DeckUI : MonoBehaviour
     public CardUI prefab;
     public int NumberOfShownCards;
 
+    public List<CardUI> Cards = new List<CardUI>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,12 +38,25 @@ public class DeckUI : MonoBehaviour
             {
                 // make a new UI object to show this card
                 CardUI ui = Instantiate(prefab, transform);
+                Cards.Add(ui);
                 // set the new UI objects data to display this card
                 ui.SetCompleteCard(ph.GetCard());
                 ui.index = counter;
                 ui.dUI = this;
                 NumberOfShownCards++;
             }
+        }
+    }
+
+    public void RemoveCard(CardUI cardUI)
+    {
+        Cards.Remove(cardUI);
+        NumberOfShownCards--;
+        int index = 0;
+        foreach(CardUI cUI in Cards)
+        {
+            cUI.index = index;
+            index++;
         }
     }
 }

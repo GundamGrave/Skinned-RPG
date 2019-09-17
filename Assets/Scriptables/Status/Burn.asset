@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: Burn
   m_EditorClassIdentifier: 
   Duration: 3
-  BaseDamage: 5
   modifiers: []
   isApplied: 0
   everyTurnModifier:
   - stat: 1
-    delta: -10
-  - stat: 0
-    delta: -10
+    delta: -3
   Timer: 0

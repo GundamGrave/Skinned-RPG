@@ -31,22 +31,22 @@ public class AIStats : UnitInformation
         {
             case 0:
                 GetComponent<MeshRenderer>().material = (Material)Resources.Load("Materials/Blue");
-                Sprite = Resources.Load("Sprites/Blue") as Sprite;
+                Sprite = Resources.Load<Sprite>("Sprites/Blue");
                 break;
 
             case 1:
                 GetComponent<MeshRenderer>().material = (Material)Resources.Load("Materials/Green");
-                Sprite = Resources.Load("Sprites/Green") as Sprite;
+                Sprite = Resources.Load<Sprite>("Sprites/Green");
                 break;
 
             case 2:
                 GetComponent<MeshRenderer>().material = (Material)Resources.Load("Materials/Purple");
-                Sprite = Resources.Load("Sprites/Purple") as Sprite;
+                Sprite = Resources.Load<Sprite>("Sprites/Purple");
                 break;
 
             default:
                 GetComponent<MeshRenderer>().material = (Material)Resources.Load("Materials/Blue");
-                Sprite = Resources.Load("Sprites/Blue") as Sprite;
+                Sprite = Resources.Load<Sprite>("Sprites/Blue");
                 break;
         }
     }
@@ -63,18 +63,16 @@ public class AIStats : UnitInformation
         SetStat(Stats.Level, stats[0]);
     }
 
-
     public override void Start()
     {
         RandomData();
         base.Start();
-        navMesh.destination = transform.position;
-        navMesh.ResetPath();
+        
         foreach (Skill s in CurrentSkills)
         {
-            if ((s.Radius + s.Range) / 2 < ShortestSkillDistance)
+            if ((s.Radius + s.Range /2) < ShortestSkillDistance)
             {
-                ShortestSkillDistance = (s.Radius + s.Range) / 2;
+                ShortestSkillDistance = (s.Radius + s.Range /2);
             }
         }
 
@@ -100,6 +98,7 @@ public class AIStats : UnitInformation
 
         if (myTurn) //Do combat
         {
+            navMesh.isStopped = false;
             DistanceTravel();
             float distance = Vector3.Distance(transform.position, player.transform.position);
             // If enough to use skill, get within distance to use said skill
@@ -109,7 +108,7 @@ public class AIStats : UnitInformation
             }
             else if (distance <= ShortestSkillDistance) // within distance, use skills
             {
-                navMesh.ResetPath(); // make sure not to move
+                navMesh.isStopped = true; // make sure not to move
                 if(AP >= 3) // use spell
                 {
                     print(gameObject.name + " :USED SPELL ATTACK");
@@ -147,9 +146,10 @@ public class AIStats : UnitInformation
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !CM.InCombat)
         {
             CM.InCombat = true;
+            CM.StartCombat();
         }
     }
 
