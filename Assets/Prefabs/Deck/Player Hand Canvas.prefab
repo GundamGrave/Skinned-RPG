@@ -226,4 +226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  ps: {fileID: 0}
   prefab: {fileID: 4709250651629184889, guid: 720588f39b4b4e8439c1e109acac160e, type: 3}
+  NumberOfShownCards: 0
+  Cards: []
