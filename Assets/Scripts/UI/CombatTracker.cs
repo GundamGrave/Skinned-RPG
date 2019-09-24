@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class CombatTracker : MonoBehaviour
 {
     public int NumberOfActionPoints;
+    public GameObject APBar;
     public CombatManager CM;
 
     public Image[] actionPoints;
@@ -22,6 +23,7 @@ public class CombatTracker : MonoBehaviour
     {
         if (CM.InCombat)
         {
+            APBar.SetActive(true);
             NumberOfActionPoints = (int)player.GetStat(UnitInformation.Stats.ActionPoints);
             int counter = 0;
             foreach (Image raw in actionPoints)
@@ -36,6 +38,10 @@ public class CombatTracker : MonoBehaviour
                     raw.material = materials[1];
                 }
             }
+        }
+        else
+        {
+            APBar.SetActive(false);
         }
     }
 

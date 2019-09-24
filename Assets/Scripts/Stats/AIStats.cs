@@ -70,9 +70,9 @@ public class AIStats : UnitInformation
         
         foreach (Skill s in CurrentSkills)
         {
-            if ((s.Radius + s.Range /2) < ShortestSkillDistance)
+            if ((s.Radius/2 + s.Range) < ShortestSkillDistance)
             {
-                ShortestSkillDistance = (s.Radius + s.Range /2);
+                ShortestSkillDistance = (s.Radius/2 + s.Range);
             }
         }
 

@@ -13,7 +13,7 @@ public class CombatManager : MonoBehaviour
     public PlayerStats Player;
 
     public GameObject CardCanvas;
-    public GameObject CombatCanvas;
+    //public GameObject CombatCanvas;
 
     private UnitInformation CurrentUnit;
 
@@ -41,7 +41,7 @@ public class CombatManager : MonoBehaviour
         if (InCombat)
         {
             CardCanvas.SetActive(true);
-            CombatCanvas.SetActive(true);
+            //CombatCanvas.SetActive(true);
 
             if (battleOrder == null)
             {
@@ -90,7 +90,7 @@ public class CombatManager : MonoBehaviour
         else
         {
             CardCanvas.SetActive(false);
-            CombatCanvas.SetActive(false);
+            //CombatCanvas.SetActive(false);
             battleOrder = null;
             if (!timerRunning)
             {

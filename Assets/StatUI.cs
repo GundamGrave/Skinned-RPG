@@ -2,22 +2,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class StatUI : MonoBehaviour
 {
     public UnitInformation unit;
     public UnitInformation.Stats stat;
-    Text text;
+    TextMeshProUGUI text;
 
     // Start is called before the first frame update
     void Start()
     {
-        text = GetComponent<Text>();
+        text = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = stat.ToString() + ": " + unit.GetStat(stat); 
+        //text.text = stat.ToString() + ": " + unit.GetStat(stat);
+        text.text = unit.GetStat(stat).ToString("F0");
     }
 }
