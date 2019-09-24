@@ -19,7 +19,9 @@ public class CompleteCard : ScriptableObject
     {
         BasicAttackCard,
         WeaponCard,
-        ArmourCard,
+        HeadArmourCard,
+        TorsoArmourCard,
+        LegsArmourCard,
         ItemCard,
         SpellCard,
     }

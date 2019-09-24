@@ -15,7 +15,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   cardName: Flame Hands Lvl 1
   flavText: AHHH IT BURNS!!!!
-  cardType: 4
+  cardType: 6
   setType: 0
   strMod: 0
   intMod: 0
