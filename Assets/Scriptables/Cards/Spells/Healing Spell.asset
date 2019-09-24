@@ -15,7 +15,7 @@ MonoBehaviour:
   cardArt: {fileID: 0}
   cardName: Heal Self
   flavText: I feel renewed.
-  cardType: 4
+  cardType: 6
   setType: 0
   strMod: 0
   intMod: 0

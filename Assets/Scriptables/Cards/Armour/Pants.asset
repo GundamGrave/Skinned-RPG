@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd86bcefe9a9955488829931ee88e883, type: 3}
-  m_Name: Flame Hands Lvl 2
+  m_Name: Pants
   m_EditorClassIdentifier: 
-  cardArt: {fileID: 0}
-  cardName: Flame Hands Lvl 2
-  flavText: Let my fire cleanse you.
+  cardArt: {fileID: 21300000, guid: bb0cf58fb0dbc2f4285ee9c4d1cda2e6, type: 3}
+  cardName: Pants
+  flavText: Just pants
   cardType: 4
   setType: 0
-  strMod: 0
-  intMod: 0
-  spdMod: 0
-  Spell: {fileID: 11400000, guid: afa382e95ce8d434cbb2b630ba1891ea, type: 2}
+  strMod: -1
+  intMod: -1
+  spdMod: -1
+  Spell: {fileID: 0}
