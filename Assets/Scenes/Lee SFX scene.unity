@@ -204,6 +204,182 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &228821487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2131595224776723471, guid: 6b248ebff8b91984e811c842297cc59a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131595226056972877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &228821491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 228821487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc835c69ccf4667499e8bc55bae50008, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotPrefab: {fileID: 0}
+  itemPrefab: {fileID: 3437741041935525987, guid: 74f0dac1b1245484f8578378f7b4a736,
+    type: 3}
+  preMadeSlots: []
+  onDragBegin:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragEnd:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragFail:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragEnter:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  player: {fileID: 4670277681603926418}
+  head: {fileID: 496026595}
+  torso: {fileID: 545641118}
+  legs: {fileID: 1835250324}
+  weapon: {fileID: 379087962}
+  slots: []
+--- !u!1 &379087958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2131595225774428260, guid: 6b248ebff8b91984e811c842297cc59a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131595226056972877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &379087962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 379087958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0625293abfe6254eac156f284f04bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: {fileID: 0}
+  container: {fileID: 0}
+  index: 0
+  onDragEnterCanSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragEnterCannotSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!1 &496026591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2131595224106103366, guid: 6b248ebff8b91984e811c842297cc59a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131595226056972877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &496026595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496026591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0625293abfe6254eac156f284f04bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: {fileID: 0}
+  container: {fileID: 0}
+  index: 0
+  onDragEnterCanSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragEnterCannotSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!1 &545641114 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2131595225052964625, guid: 6b248ebff8b91984e811c842297cc59a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131595226056972877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &545641118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545641114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0625293abfe6254eac156f284f04bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: {fileID: 0}
+  container: {fileID: 0}
+  index: 0
+  onDragEnterCanSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragEnterCannotSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &631834728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2513584296240238600, guid: 1ad5a7717b7a253469d6916b46c452e3,
@@ -630,6 +806,47 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   inventory: {fileID: 4670277681603926414}
+--- !u!1 &1835250320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2131595224766087398, guid: 6b248ebff8b91984e811c842297cc59a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131595226056972877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1835250324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835250320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0625293abfe6254eac156f284f04bfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slot: {fileID: 0}
+  container: {fileID: 0}
+  index: 0
+  onDragEnterCanSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragEnterCannotSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onDragExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onSlot:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &2063814525
 GameObject:
   m_ObjectHideFlags: 0
@@ -823,6 +1040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character Screen Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 2131595225279389466, guid: 6b248ebff8b91984e811c842297cc59a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2131595225279389462, guid: 6b248ebff8b91984e811c842297cc59a,
         type: 3}
@@ -1285,6 +1507,7 @@ MonoBehaviour:
   init: 0
   inCombat: 0
   movement: {fileID: 0}
+  EndTurn: {fileID: 0}
   mask:
     serializedVersion: 2
     m_Bits: 0
@@ -1311,6 +1534,22 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 84be8b82caa969e449969854e68d7462, type: 2}
   - {fileID: 11400000, guid: d218acf839313864d9814e13c3293731, type: 2}
   - {fileID: 11400000, guid: 1ee3597a3a2ad3347ba58137e066de20, type: 2}
+--- !u!114 &4670277681603926418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4670277681603926411}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80525c9a537365942977fe44b55f0a8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  head: {fileID: 0}
+  torso: {fileID: 0}
+  legs: {fileID: 0}
+  weapon: {fileID: 0}
 --- !u!1001 &5294550179765722180
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1327,6 +1566,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5294550180322977532, guid: b9290423119d4fa41904820f1a8c506b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5294550180688220819, guid: b9290423119d4fa41904820f1a8c506b,
         type: 3}
@@ -1456,11 +1700,6 @@ PrefabInstance:
     - target: {fileID: 5294550179223450050, guid: b9290423119d4fa41904820f1a8c506b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5294550180322977532, guid: b9290423119d4fa41904820f1a8c506b,
-        type: 3}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5294550180682232244, guid: b9290423119d4fa41904820f1a8c506b,
