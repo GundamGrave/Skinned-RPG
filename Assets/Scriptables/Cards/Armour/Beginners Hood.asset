@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd86bcefe9a9955488829931ee88e883, type: 3}
-  m_Name: God Killer
+  m_Name: Beginners Hood
   m_EditorClassIdentifier: 
-  cardArt: {fileID: 21300000, guid: e0f4058fa991427479462cdea7909fa8, type: 3}
-  cardName: God Killer
-  flavText: Kills Gods DUH!
-  cardType: 1
+  cardArt: {fileID: 21300000, guid: 5f45b5c718c6e2e42a7462866c740888, type: 3}
+  cardName: Beginners Hood
+  flavText: Good enough to start with.
+  cardType: 2
   setType: 0
-  strMod: 10
-  intMod: 10
-  spdMod: 10
+  strMod: 1
+  intMod: 1
+  spdMod: 1
   Spell: {fileID: 0}

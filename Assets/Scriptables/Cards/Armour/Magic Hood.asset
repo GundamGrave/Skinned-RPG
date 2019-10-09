@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd86bcefe9a9955488829931ee88e883, type: 3}
-  m_Name: Plate Pants
+  m_Name: Magic Hood
   m_EditorClassIdentifier: 
-  cardArt: {fileID: 21300000, guid: bb0cf58fb0dbc2f4285ee9c4d1cda2e6, type: 3}
-  cardName: Plate pants
-  flavText: Made of plates?
-  cardType: 4
+  cardArt: {fileID: 21300000, guid: 30a4caa7958256445b00995d42fccc65, type: 3}
+  cardName: Magic Hood
+  flavText: Magic fills this hood
+  cardType: 2
   setType: 0
-  strMod: 5
-  intMod: -1
-  spdMod: -1
+  strMod: 1
+  intMod: 10
+  spdMod: 3
   Spell: {fileID: 0}

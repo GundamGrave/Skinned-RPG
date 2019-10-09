@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd86bcefe9a9955488829931ee88e883, type: 3}
-  m_Name: God Killer
+  m_Name: Deaths Scythe
   m_EditorClassIdentifier: 
-  cardArt: {fileID: 21300000, guid: e0f4058fa991427479462cdea7909fa8, type: 3}
-  cardName: God Killer
-  flavText: Kills Gods DUH!
+  cardArt: {fileID: 21300000, guid: 5acf0f7af4c6eb347a008ff577741a5b, type: 3}
+  cardName: Deaths Scythe
+  flavText: Quick to kill and quite magical
   cardType: 1
   setType: 0
-  strMod: 10
-  intMod: 10
-  spdMod: 10
+  strMod: 3
+  intMod: 4
+  spdMod: 6
   Spell: {fileID: 0}

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd86bcefe9a9955488829931ee88e883, type: 3}
-  m_Name: Bunny Reaver
+  m_Name: Legendary Dragon Armor
   m_EditorClassIdentifier: 
-  cardArt: {fileID: 21300000, guid: c03c72978d15ecb4d91060d3a10d14f0, type: 3}
-  cardName: Bunny Reaver
-  flavText: What a rip off!! So original
-  cardType: 1
+  cardArt: {fileID: 21300000, guid: d9780d914095cb645b5cb0af5381e4bb, type: 3}
+  cardName: Legendary Dragon Armor
+  flavText: Made from the strongest of dragons.
+  cardType: 3
   setType: 0
-  strMod: 10
-  intMod: -2
-  spdMod: -5
+  strMod: 5
+  intMod: 6
+  spdMod: 4
   Spell: {fileID: 0}

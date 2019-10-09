@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd86bcefe9a9955488829931ee88e883, type: 3}
-  m_Name: Void Vest
+  m_Name: Standard Leather Pants
   m_EditorClassIdentifier: 
-  cardArt: {fileID: 21300000, guid: b9fd540e06b069149995e2b9357ed3b7, type: 3}
-  cardName: 'Void Vest '
-  flavText: My eyes are up here!
-  cardType: 3
+  cardArt: {fileID: 21300000, guid: c6730bfe9e46e4f4393bd55a217419b9, type: 3}
+  cardName: Standard Leather Pants
+  flavText: Good thick leather binds the legs
+  cardType: 4
   setType: 0
-  strMod: 1
+  strMod: 3
   intMod: 5
-  spdMod: 4
+  spdMod: 2
   Spell: {fileID: 0}
