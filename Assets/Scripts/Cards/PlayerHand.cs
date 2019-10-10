@@ -34,7 +34,7 @@ public class PlayerHand : MonoBehaviour
                     int[] NewCards = new int[NumOfNewCards];
                     for (int i = 0; i < NewCards.Length; i++)
                     {
-                        NewCards[i] = Random.Range(0, pd.Deck.Count - 1);
+                        NewCards[i] = Random.Range(0, pd.Deck.Count);
                     }
 
                     foreach (int i in NewCards)
