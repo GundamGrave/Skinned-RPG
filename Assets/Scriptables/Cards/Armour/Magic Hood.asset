@@ -20,4 +20,4 @@ MonoBehaviour:
   strMod: 1
   intMod: 10
   spdMod: 3
-  Spell: {fileID: 0}
+  Spell: {fileID: 11400000, guid: 070eb3d1d6f800447a22b134700e215b, type: 2}
