@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 4709250651629184889}
   - component: {fileID: 7042849304052907059}
   m_Layer: 5
-  m_Name: Card Pants
+  m_Name: Card Deaths Scythe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1208,7 +1208,7 @@ MonoBehaviour:
     cc: {fileID: 0}
     key: 0
   dUI: {fileID: 0}
-  completeCard: {fileID: 11400000, guid: 0c33f3d34e83969489d2aae1a656f769, type: 2}
+  completeCard: {fileID: 11400000, guid: b74adeb5d1c1faf4c9a0fd632c2c1193, type: 2}
   cardNameTag: {fileID: 3976303343629396155}
   cardDescTag: {fileID: 3976303342812147565}
   cardFlavTag: {fileID: 3976303343828621281}

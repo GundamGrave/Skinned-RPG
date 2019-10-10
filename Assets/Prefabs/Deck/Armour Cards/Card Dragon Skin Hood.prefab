@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 4709250651629184889}
   - component: {fileID: 7042849304052907059}
   m_Layer: 5
-  m_Name: Card Bunny Reaver
+  m_Name: 'Card Dragon Skin Hood '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1208,7 +1208,7 @@ MonoBehaviour:
     cc: {fileID: 0}
     key: 0
   dUI: {fileID: 0}
-  completeCard: {fileID: 11400000, guid: 5a217b230bb48234fbde61ef64e75da4, type: 2}
+  completeCard: {fileID: 11400000, guid: 84be8b82caa969e449969854e68d7462, type: 2}
   cardNameTag: {fileID: 3976303343629396155}
   cardDescTag: {fileID: 3976303342812147565}
   cardFlavTag: {fileID: 3976303343828621281}
