@@ -15,41 +15,11 @@ public class AIStats : UnitInformation
 
     public float AP;
 
-    private float[] stats = new float[4];
+    public float[] stats = new float[4];
 
     [SerializeField] float ShortestSkillDistance = Mathf.Infinity;
 
-    private void RandomData()
-    {
-        stats[0] = Random.Range(1, 5);
-        stats[1] = Random.Range(stats[0] * 2, stats[0] * 4);
-        stats[2] = Random.Range(stats[0] * 2, stats[0] * 4);
-        stats[3] = Random.Range(stats[0] * 2, stats[0] * 4);
-
-        int num = Random.Range(0, 2);
-        switch (num)
-        {
-            case 0:
-                GetComponent<MeshRenderer>().material = (Material)Resources.Load("Materials/Blue");
-                Sprite = Resources.Load<Sprite>("Sprites/Blue");
-                break;
-
-            case 1:
-                GetComponent<MeshRenderer>().material = (Material)Resources.Load("Materials/Green");
-                Sprite = Resources.Load<Sprite>("Sprites/Green");
-                break;
-
-            case 2:
-                GetComponent<MeshRenderer>().material = (Material)Resources.Load("Materials/Purple");
-                Sprite = Resources.Load<Sprite>("Sprites/Purple");
-                break;
-
-            default:
-                GetComponent<MeshRenderer>().material = (Material)Resources.Load("Materials/Blue");
-                Sprite = Resources.Load<Sprite>("Sprites/Blue");
-                break;
-        }
-    }
+    
 
     public override void InitializeStats()
     {
@@ -65,7 +35,6 @@ public class AIStats : UnitInformation
 
     public override void Start()
     {
-        RandomData();
         base.Start();
         
         foreach (Skill s in CurrentSkills)
@@ -83,6 +52,7 @@ public class AIStats : UnitInformation
 
         player = FindObjectOfType<PlayerStats>();
         navMesh = GetComponent<NavMeshAgent>();
+        navMesh.enabled = true;
     }
 
     public override void Update()
@@ -94,6 +64,7 @@ public class AIStats : UnitInformation
             CM.RemoveCombatant(this);
             player.ModifyStat(Stats.Experience, 100);
             Destroy(gameObject);
+            // Drop item
         }
 
         if (myTurn) //Do combat
