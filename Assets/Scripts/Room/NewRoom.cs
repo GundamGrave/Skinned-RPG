@@ -19,6 +19,8 @@ public class NewRoom : MonoBehaviour
     {
         tile2x2 = (GameObject)Resources.Load("2x2");
         exit = (GameObject)Resources.Load("2x2Exit");
+
+        WorldTracker.instance.numOfRooms++;
     }
 
     private void OnTriggerEnter(Collider other)

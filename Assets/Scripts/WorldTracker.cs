@@ -23,11 +23,16 @@ public class WorldTracker : MonoBehaviour
     void Update()
     {
         grids = rg.grids;
+    }
+
+    public void Teleport()
+    {
         if (completedRooms == numOfRooms)
         {
             Destroy(grids);
-            rg.GenerateRoom();
             completedRooms = 0;
+            numOfRooms = 0;
+            rg.GenerateRoom();
         }
     }
 }

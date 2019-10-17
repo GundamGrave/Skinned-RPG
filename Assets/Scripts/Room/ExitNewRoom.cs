@@ -18,6 +18,7 @@ public class ExitNewRoom : MonoBehaviour
                 other.transform.position = OrigPos;
                 other.GetComponent<NavMeshAgent>().enabled = true;
 
+                WorldTracker.instance.completedRooms++;
                 Destroy(Room);
             }
         }
