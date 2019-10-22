@@ -7,8 +7,8 @@ public class NewRoom : MonoBehaviour
 {
     public RoomInfo room;
     private GameObject tile2x2;
-    private GameObject exit;
-    private GameObject enemy;
+    private GameObject exit, enemy;
+    public TorchLighting[] torches;
     float[] stats = new float[4];
 
     private List<GameObject> enemies = new List<GameObject>();
@@ -49,8 +49,6 @@ public class NewRoom : MonoBehaviour
                         e.transform.parent = NewRoom.transform;
                         e.transform.localPosition = new Vector3(2 * x, 1, 2 * z);
                         enemies.Add(e);
-
-
                     }
                     else if (i == 2)
                     {
@@ -58,6 +56,7 @@ public class NewRoom : MonoBehaviour
                         tile.transform.parent = NewRoom.transform;
                         tile.transform.localPosition = new Vector3(2 * x, 0, 2 * z);
                         v3Exit = new Vector3(2 * x, -30, 2 * z);
+                        tile.GetComponentInChildren<ExitNewRoom>().WorldRoom = this;
                     }
                     else if (i == 1)
                     {
