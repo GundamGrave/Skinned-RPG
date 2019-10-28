@@ -110,6 +110,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 383071260}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7885017788608804743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7885017788438070171, guid: 6469251aba491b247b4d0cd92a63fc34,
+    type: 3}
+  m_PrefabInstance: {fileID: 383071260}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08c873871785fa40a3e40f07e8811f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1003585401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -195,6 +207,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1003585401}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7885017788256730338 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7885017788438070171, guid: 6469251aba491b247b4d0cd92a63fc34,
+    type: 3}
+  m_PrefabInstance: {fileID: 1003585401}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f08c873871785fa40a3e40f07e8811f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1101265660293957074
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -262,6 +286,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8745560257218714630, guid: 25ef12f69309e5a4c937edf07b5f2dfc,
+        type: 3}
+      propertyPath: torches.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745560257218714630, guid: 25ef12f69309e5a4c937edf07b5f2dfc,
+        type: 3}
+      propertyPath: torches.Array.data[0]
+      value: 
+      objectReference: {fileID: 7885017788608804743}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25ef12f69309e5a4c937edf07b5f2dfc, type: 3}
 --- !u!4 &1231553170380232288 stripped
@@ -337,6 +371,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8745560257218714630, guid: 25ef12f69309e5a4c937edf07b5f2dfc,
+        type: 3}
+      propertyPath: torches.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745560257218714630, guid: 25ef12f69309e5a4c937edf07b5f2dfc,
+        type: 3}
+      propertyPath: torches.Array.data[0]
+      value: 
+      objectReference: {fileID: 7885017788256730338}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25ef12f69309e5a4c937edf07b5f2dfc, type: 3}
 --- !u!4 &1231553170272078916 stripped

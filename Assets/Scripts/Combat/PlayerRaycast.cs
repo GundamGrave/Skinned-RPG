@@ -14,6 +14,9 @@ public class PlayerRaycast : MonoBehaviour
     public bool radiusMode;
     public Skill skill;
     public CardUI cUI;
+    public DeckUI dUI;
+    public int index;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,6 +65,15 @@ public class PlayerRaycast : MonoBehaviour
                     {
                         ps.NewStatus(s);
                     }
+
+                    //Destroy card and stuff
+                    ps.ModifyStat(UnitInformation.Stats.ActionPoints, -skill.Cost);
+                    dUI.RemoveCard(cUI);
+                    ps.gameObject.GetComponent<PlayerHand>().RemoveCard(index);
+                    Destroy(cUI.gameObject);
+                    // Unselect Skill and no more targeting
+                    ps.SelectedSkill = null;
+                    targeting = false;
                 }
             }
 
@@ -91,6 +103,14 @@ public class PlayerRaycast : MonoBehaviour
                             }
 
                         }
+                        //destroy card and stuff
+                        ps.ModifyStat(UnitInformation.Stats.ActionPoints, -skill.Cost);
+                        dUI.RemoveCard(cUI);
+                        ps.gameObject.GetComponent<PlayerHand>().RemoveCard(index);
+                        Destroy(cUI.gameObject);
+                        // Unselect Skill and no more targeting
+                        ps.SelectedSkill = null;
+                        targeting = false;
                     }
                 }
             }

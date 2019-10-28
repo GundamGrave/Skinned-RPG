@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd86bcefe9a9955488829931ee88e883, type: 3}
+  m_Name: Beginners Greaves
+  m_EditorClassIdentifier: 
+  cardArt: {fileID: 21300000, guid: a2082038368e2ca4393e62ab32d69276, type: 3}
+  cardName: Beginners Greaves
+  flavText: Just pants
+  cardType: 4
+  setType: 0
+  strMod: 1
+  intMod: 1
+  spdMod: 1
+  Spell: {fileID: 11400000, guid: 070eb3d1d6f800447a22b134700e215b, type: 2}

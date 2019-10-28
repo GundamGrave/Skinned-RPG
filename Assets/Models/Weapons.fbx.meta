@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 65f7811779d778148813c287e2e156ce
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Axe
+    100002: Cutlas
+    100004: Cutlas.001
+    100006: Epic Sword
+    100008: Hammer
+    100010: Head armour
+    100012: Head armour.001
+    100014: Head armour.002
+    100016: Kama
+    100018: Leg armour
+    100020: Leg armour.001
+    100022: Leg armour.002
+    100024: Mace
+    100026: Scythe
+    100028: Sword
+    100030: Sword.001
+    100032: Torso armour
+    100034: Torso armour.001
+    100036: Torso armour.002
+    100038: //RootNode
+    400000: Axe
+    400002: Cutlas
+    400004: Cutlas.001
+    400006: Epic Sword
+    400008: Hammer
+    400010: Head armour
+    400012: Head armour.001
+    400014: Head armour.002
+    400016: Kama
+    400018: Leg armour
+    400020: Leg armour.001
+    400022: Leg armour.002
+    400024: Mace
+    400026: Scythe
+    400028: Sword
+    400030: Sword.001
+    400032: Torso armour
+    400034: Torso armour.001
+    400036: Torso armour.002
+    400038: //RootNode
+    2100000: SkullMat
+    2100002: Torso Mat 3
+    2100004: Cloth Mat 3
+    2100006: Cloth Mat 2
+    2100008: Torso Mat 2
+    2100010: Armor mat
+    2100012: Cloth mat
+    2100014: ShoesMat
+    2100016: HandleMat
+    2100018: EpicBaseMat
+    2100020: Clothe 02
+    2100022: Material
+    2100024: GoldMat
+    2100026: PurpleGemMat
+    2100028: BlueGemMat
+    2100030: GreenGemMat
+    2300000: Axe
+    2300002: Cutlas
+    2300004: Cutlas.001
+    2300006: Epic Sword
+    2300008: Hammer
+    2300010: Head armour
+    2300012: Head armour.001
+    2300014: Head armour.002
+    2300016: Kama
+    2300018: Leg armour
+    2300020: Leg armour.001
+    2300022: Leg armour.002
+    2300024: Mace
+    2300026: Scythe
+    2300028: Sword
+    2300030: Sword.001
+    2300032: Torso armour
+    2300034: Torso armour.001
+    2300036: Torso armour.002
+    3300000: Axe
+    3300002: Cutlas
+    3300004: Cutlas.001
+    3300006: Epic Sword
+    3300008: Hammer
+    3300010: Head armour
+    3300012: Head armour.001
+    3300014: Head armour.002
+    3300016: Kama
+    3300018: Leg armour
+    3300020: Leg armour.001
+    3300022: Leg armour.002
+    3300024: Mace
+    3300026: Scythe
+    3300028: Sword
+    3300030: Sword.001
+    3300032: Torso armour
+    3300034: Torso armour.001
+    3300036: Torso armour.002
+    4300000: Torso armour.002
+    4300002: Head armour.002
+    4300004: Leg armour.002
+    4300006: Leg armour.001
+    4300008: Head armour.001
+    4300010: Torso armour.001
+    4300012: Torso armour
+    4300014: Head armour
+    4300016: Sword.001
+    4300018: Cutlas.001
+    4300020: Leg armour
+    4300022: Cutlas
+    4300024: Scythe
+    4300026: Axe
+    4300028: Kama
+    4300030: Mace
+    4300032: Sword
+    4300034: Hammer
+    4300036: Epic Sword
+    7400000: Epic Sword|Epic Sword|Epic Sword|Armature|Armature|Attack01|Armature|Attac
+    7400002: Epic Sword|Epic Sword|Epic Sword|Epic Sword|Epic Sword|EpicSword|Epic
+      Swor
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

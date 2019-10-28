@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd86bcefe9a9955488829931ee88e883, type: 3}
+  m_Name: Skull Hammer
+  m_EditorClassIdentifier: 
+  cardArt: {fileID: 21300000, guid: 6384a3ec28c32bb4085840ff333084e9, type: 3}
+  cardName: Skull Hammer
+  flavText: Cracks Skullz Good
+  cardType: 1
+  setType: 0
+  strMod: 10
+  intMod: -2
+  spdMod: -5
+  Spell: {fileID: 11400000, guid: 68c41a70c83229548a4d4bb96d0367c2, type: 2}

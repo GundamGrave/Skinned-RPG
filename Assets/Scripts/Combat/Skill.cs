@@ -12,8 +12,8 @@ public class Skill : ScriptableObject
     public bool isAvailable = true;
 
     [Header("Target"), Space(10)]
-    public float Radius;
-    public float Range;
+    [Tooltip("The radius of the AOE")]public float Radius;
+    [Tooltip("How far the skill can reach")] public float Range;
 
 
     [Header("Target Effects"), Space(10)]

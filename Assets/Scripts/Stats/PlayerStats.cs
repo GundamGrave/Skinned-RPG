@@ -8,6 +8,7 @@ public class PlayerStats : UnitInformation
 
     public bool inCombat;
     public Movement movement;
+    public GameObject EndTurn;
 
     [SerializeField] LayerMask mask;
 
@@ -32,6 +33,15 @@ public class PlayerStats : UnitInformation
     {
         base.Update();
         LevelUp();
+
+        if (myTurn)
+        {
+            EndTurn.SetActive(true);
+        }
+        else
+        {
+            EndTurn.SetActive(false);
+        }
     }
 
     private Vector3 something() // hahhah need to name this properly (gets location of where the mouse is hovering)

@@ -9,7 +9,9 @@ public class CardUI : MonoBehaviour
 {
     PlayerHand ph;
     PlayerStats ps;
-    PlayHand play;
+    PlayerRaycast pr;
+    public PlayHand play;
+
     public DeckUI dUI;
     public CompleteCard completeCard;
 
@@ -35,9 +37,40 @@ public class CardUI : MonoBehaviour
         SetCompleteCard(completeCard);
         ph = FindObjectOfType<PlayerHand>();
         ps = ph.gameObject.GetComponent<PlayerStats>();
-        play = new PlayHand();
-        play.ChangeCard(completeCard);
-        play.ChangeKey((KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha" + (index + 1)));
+        pr = ps.gameObject.GetComponent<PlayerRaycast>();
+    }
+
+    private void Update()
+    {
+
+        if (Input.GetKeyDown((KeyCode)System.Enum.Parse(typeof(KeyCode), "Alpha" + (index + 1) )))
+        {
+            if (ps.SelectedSkill == completeCard.Spell)
+            {
+                // cancel the card on a second click
+                ps.SelectedSkill = null;
+                pr.targeting = false;
+                pr.radiusMode = false;
+            }
+            else
+            {
+                ps.SelectedSkill = completeCard.Spell;
+                pr.targeting = true;
+                if (completeCard.Spell.Radius == 0)
+                {
+                    pr.radiusMode = false;
+                }
+                else
+                {
+                    pr.radiusMode = true;
+                }
+            }
+
+            pr.cUI = this;
+            pr.dUI = dUI;
+            pr.index = index;
+        }
+
     }
 
     // Update is called once per frame
@@ -86,11 +119,27 @@ public class CardUI : MonoBehaviour
     {
         if (ps.GetStat(UnitInformation.Stats.ActionPoints) >= completeCard.Spell.Cost)
         {
-            ps.gameObject.GetComponent<PlayerRaycast>().cUI = this;
+
+            ps.SelectedSkill = completeCard.Spell;
+            pr.targeting = true;
+            if (completeCard.Spell.Radius == 0)
+            {
+                pr.radiusMode = false;
+            }
+            else
+            {
+                pr.radiusMode = true;
+            }
+            pr.cUI = this;
+            pr.dUI = dUI;
+            pr.index = index;
+
+            /*
             ps.ModifyStat(UnitInformation.Stats.ActionPoints, -completeCard.Spell.Cost);
-            ph.RemoveCard(play);
-            dUI.NumberOfShownCards--;
+            dUI.RemoveCard(this);
+            ph.RemoveCard(index);
             Destroy(gameObject);
+            */
         }
     }
 }

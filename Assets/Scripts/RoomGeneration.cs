@@ -11,8 +11,7 @@ public class RoomGeneration : MonoBehaviour
     int[,] roomArr;
 
     public int roomWidth, roomLength;
-
-
+    public GameObject grids;
 
     Random rand;
 
@@ -22,8 +21,10 @@ public class RoomGeneration : MonoBehaviour
         GenerateRoom();
     }
 
-    private void GenerateRoom()
+    public void GenerateRoom()
     {
+        grids = new GameObject();
+        grids.transform.parent = gameObject.transform;
         roomArr = new int[roomWidth, roomLength];
 
         for (int i = 0; i < roomWidth; i++)
@@ -42,7 +43,7 @@ public class RoomGeneration : MonoBehaviour
             {
                 Vector3 location = new Vector3(i * 10, 0, j * 10);
                 GameObject go = Instantiate(rooms[roomArr[i, j]], location, transform.rotation);
-                go.transform.parent = transform;
+                go.transform.parent = grids.transform;
             }
         }
 
