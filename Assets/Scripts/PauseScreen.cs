@@ -7,6 +7,7 @@ public class PauseScreen : MonoBehaviour
 {
     private const string MainMenu = "Main Menu";
     public static bool GameIsPaused = false;
+    public GameObject Portrait;
 
     public GameObject pauseMenuUI;
 
@@ -17,10 +18,12 @@ public class PauseScreen : MonoBehaviour
         {
             if (GameIsPaused)
             {
+                Portrait.SetActive(true);
                 Resume();
             }
             else
             {
+                Portrait.SetActive(false);
                 Pause();
             }
         }

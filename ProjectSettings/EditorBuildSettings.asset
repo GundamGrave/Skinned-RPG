@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu.unity
     guid: 5719036e193add94682886de8dc2a628
   - enabled: 1
-    path: Assets/Scenes/Script-Testing.unity
+    path: Assets/Scenes/Stage.unity
     guid: fe7341a9146b647469f3acac58e5541d
+  - enabled: 1
+    path: Assets/Scenes/Game Over.unity
+    guid: 2256d4028488f6d4aaa55d0b10e791c7
   m_configObjects: {}

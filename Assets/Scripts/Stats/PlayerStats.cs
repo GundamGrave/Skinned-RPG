@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : UnitInformation
 {
@@ -39,6 +40,11 @@ public class PlayerStats : UnitInformation
         else
         {
             EndTurn.SetActive(false);
+        }
+
+        if(GetStat(Stats.CurrentHealth) <= 0)
+        {
+            SceneManager.LoadScene("Game Over");
         }
     }
 
