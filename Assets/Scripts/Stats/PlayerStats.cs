@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerStats : UnitInformation
 {
-    public int str, intel, init;
-
     public bool inCombat;
     public Movement movement;
     public GameObject EndTurn;
@@ -70,6 +68,9 @@ public class PlayerStats : UnitInformation
             else
             {
                 ModifyStat(Stats.Level, 1); //Player isnt max level yet, increase normal level
+                ModifyStat(Stats.Strength, 1);
+                ModifyStat(Stats.Intelligence, 1);
+                ModifyStat(Stats.Initiative, 1);
             }
         }
     }
