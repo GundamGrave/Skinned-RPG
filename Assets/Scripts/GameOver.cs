@@ -29,7 +29,7 @@ public class GameOver : MonoBehaviour
     {
         Debug.Log("Restart Game");
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Level 001");
+        SceneManager.LoadScene("Stage");
     }
 
     public void LoadMenu()

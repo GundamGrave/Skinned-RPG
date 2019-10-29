@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStats : UnitInformation
 {
-    public int str, intel, init;
-
     public bool inCombat;
     public Movement movement;
     public GameObject EndTurn;
@@ -42,6 +41,11 @@ public class PlayerStats : UnitInformation
         {
             EndTurn.SetActive(false);
         }
+
+        if(GetStat(Stats.CurrentHealth) <= 0)
+        {
+            SceneManager.LoadScene("Game Over");
+        }
     }
 
     private Vector3 something() // hahhah need to name this properly (gets location of where the mouse is hovering)
@@ -70,6 +74,9 @@ public class PlayerStats : UnitInformation
             else
             {
                 ModifyStat(Stats.Level, 1); //Player isnt max level yet, increase normal level
+                ModifyStat(Stats.Strength, 1);
+                ModifyStat(Stats.Intelligence, 1);
+                ModifyStat(Stats.Initiative, 1);
             }
         }
     }

@@ -18,6 +18,8 @@ public class UnitInformation : MonoBehaviour
     public static UnityEvent StatsChanged = new UnityEvent();
     public Sprite Sprite;
 
+    public int[] StatChanges = new int[3];
+
     public enum Stats
     {
         MaxHealth,
@@ -80,7 +82,23 @@ public class UnitInformation : MonoBehaviour
     float GetStat(string statName)
     {
         if (StatsDict.ContainsKey(statName))
-            return StatsDict[statName];
+        {
+            if (statName == "Strength")
+            {
+                return StatsDict[statName] + StatChanges[0];
+            }
+            else if (statName == "Intelligence")
+            {
+                return StatsDict[statName] + StatChanges[1];
+            }
+            else if (statName == "Initiative")
+            {
+                return StatsDict[statName] + StatChanges[2];
+            }
+            else {
+                return StatsDict[statName];
+            }
+        }
 
         return 0;
     }
