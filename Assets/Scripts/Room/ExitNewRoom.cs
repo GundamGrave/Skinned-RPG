@@ -8,6 +8,7 @@ public class ExitNewRoom : MonoBehaviour
     public bool Empty = false;
     public Vector3 OrigPos;
     public GameObject Room;
+    public NewRoom WorldRoom;
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
@@ -19,6 +20,10 @@ public class ExitNewRoom : MonoBehaviour
                 other.GetComponent<NavMeshAgent>().enabled = true;
 
                 WorldTracker.instance.completedRooms++;
+                foreach(TorchLighting tl in WorldRoom.torches)
+                {
+                    tl.Change();
+                }
                 Destroy(Room);
             }
         }
